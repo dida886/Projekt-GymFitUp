@@ -1,0 +1,66 @@
+<resources>
+    <string name="app_name">GymFitUp</string>
+    <string name="text1">Historia Ćwiczeń</string>
+    <string name="historia_cwiczen">Historia Ćwiczeń</string>
+    <string name="TextGlowny">Ćwiczenia:</string>
+    <string name="_1">1.</string>
+    <string name="zapisz">Zapisz</string>
+    <string name="OpisCw0">Seria I: 12 powtórzeń x 30 kilogramów.
+
+\nSeria II: 10 powtórzeń x 35 kilogramów.
+
+\nSeria III: 8 powtórzeń x 40 kilogramów.
+
+\nSeria IV: 6 powtórzeń x 45 kilogramów."</string>
+
+    <string name="OpisCw1">Seria I: 12 powtórzeń x 30 kilogramów.
+
+\nSeria II: 10 powtórzeń x 35 kilogramów.
+
+\nSeria III: 8 powtórzeń x 40 kilogramów.
+
+\nSeria IV: 6 powtórzeń x 45 kilogramów."</string>
+
+
+    <string name="OpisCw2">Seria I: 12 powtórzeń x 25 kilogramów.
+
+\nSeria II: 10 powtórzeń x 25 kilogramów.
+
+\nSeria III: 8 powtórzeń x 30 kilogramów.
+
+\nSeria IV: 6 powtórzeń x 30 kilogramów."</string>
+
+    <string name="OpisCw3">Seria I: 12 powtórzeń x 30 kilogramów.
+
+\nSeria II: 10 powtórzeń x 35 kilogramów.
+
+\nSeria III: 8 powtórzeń x 40 kilogramów.
+
+\nSeria IV: 6 powtórzeń x 45 kilogramów."</string>
+
+    <string name="OpisCw4">Seria I: 12 powtórzeń x 30 kilogramów.
+
+\nSeria II: 10 powtórzeń x 35 kilogramów.
+
+\nSeria III: 8 powtórzeń x 40 kilogramów.
+
+\nSeria IV: 6 powtórzeń x 45 kilogramów."</string>
+
+
+
+
+    <string-array
+        name="NazwaCw">
+        <item>Przysiady</item>
+        <item>Skłony</item>
+        <item>Pompki</item>
+        <item>Sztanga</item>
+    </string-array>
+
+
+
+
+
+
+
+</resources>
