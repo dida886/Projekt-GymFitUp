@@ -11,7 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="511dp"
 
-        android:layout_marginTop="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/text1"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -26,4 +27,12 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/mojalista"
+        android:layout_alignParentStart="true"
+        android:background="@color/colorAccent" />
 </RelativeLayout>
