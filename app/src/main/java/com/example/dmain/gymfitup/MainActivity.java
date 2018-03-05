@@ -8,7 +8,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,30 +34,10 @@ public class MainActivity extends AppCompatActivity {
 
                 if(position==0)
                 {
-                    Intent myintent= new Intent(view.getContext(),Szczegoly0.class);
+                    Intent myintent= new Intent(view.getContext(),Exercises.class);
                     startActivityForResult(myintent,0);
                 }
-                if(position==1)
-                {
-                    Intent myintent= new Intent(view.getContext(),Szczegoly1.class);
-                    startActivityForResult(myintent,1);
-                }
 
-                if(position==2)
-                {
-                    Intent myintent= new Intent(view.getContext(),Szczegoly2.class);
-                    startActivityForResult(myintent,2);
-                }
-                if(position==3)
-                {
-                    Intent myintent= new Intent(view.getContext(),Szczegoly3.class);
-                    startActivityForResult(myintent,3);
-                }
-                if(position==4)
-                {
-                    Intent myintent= new Intent(view.getContext(),Szczegoly4.class);
-                    startActivityForResult(myintent,4);
-                }
 
 
 

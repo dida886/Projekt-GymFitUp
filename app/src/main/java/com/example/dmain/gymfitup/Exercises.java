@@ -9,7 +9,7 @@ import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Szczegoly0 extends AppCompatActivity {
+public class Exercises extends AppCompatActivity {
 
     GridView gridView;
 
@@ -24,7 +24,7 @@ public class Szczegoly0 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_szczegoly0);
+        setContentView(R.layout.activity_exercises);
 
         gridView= (GridView) findViewById(R.id.gridview);
 
