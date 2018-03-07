@@ -2,37 +2,23 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    tools:context="com.example.dmain.gymfitup.MainActivity">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.dmain.gymfit.MainActivity">
 
-    <ListView
-        android:id="@+id/mojalista"
-        android:layout_width="wrap_content"
-        android:layout_height="511dp"
-
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/text1"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/text1"
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="serif"
-        android:text="@string/text1"
-        android:textColor="@android:color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="30dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:backgroundTint="@android:color/holo_red_dark"
+        app:elevation="4dp"
+        app:fabSize="normal"
+        app:srcCompat="@android:drawable/ic_input_add" />
 
-    <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/mojalista"
-        android:layout_alignParentStart="true"
-        android:background="@color/colorAccent" />
 </RelativeLayout>

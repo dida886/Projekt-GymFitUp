@@ -1,4 +1,4 @@
-package com.example.dmain.gymfitup;
+package com.example.dmain.gymfit;
 
 import org.junit.Test;
 
