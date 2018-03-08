@@ -18,7 +18,7 @@ public class Activity_New_Exercise extends AppCompatActivity {
     private ArrayList<String> arrayList;
     private ArrayAdapter<String> adapter;
     private EditText txtInput;
-
+    private EditText txtInput2;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,12 +31,15 @@ public class Activity_New_Exercise extends AppCompatActivity {
         adapter=new ArrayAdapter<String>(this,R.layout.list_item,R.id.txtitem,arrayList);
         listView.setAdapter(adapter);
         txtInput=(EditText)findViewById(R.id.txtinput);
+        txtInput2=(EditText)findViewById(R.id.txtinput2);
         Button btAdd = (Button)findViewById(R.id.btadd);
         btAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String newItem = txtInput.getText().toString();
+                String newItem2 = txtInput2.getText().toString();
                 arrayList.add(newItem);
+                arrayList.add(newItem2);
                 adapter.notifyDataSetChanged();
 
 

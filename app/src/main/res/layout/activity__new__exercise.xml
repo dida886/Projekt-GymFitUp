@@ -57,24 +57,21 @@
         android:textSize="30sp" />
 
     <Button
-
         android:id="@+id/btadd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/listv"
+        android:layout_below="@+id/txtinput2"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="18dp"
-        android:text="@string/dodaj"
-         />
+        android:text="@string/dodaj" />
 
     <ListView
         android:id="@+id/listv"
         android:layout_width="400dp"
         android:layout_height="200dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
+        android:layout_below="@id/btadd"
         android:addStatesFromChildren="false">
-
     </ListView>
 
 
