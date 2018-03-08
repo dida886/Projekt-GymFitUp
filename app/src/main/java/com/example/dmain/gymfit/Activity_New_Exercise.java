@@ -39,6 +39,7 @@ public class Activity_New_Exercise extends AppCompatActivity {
                 arrayList.add(newItem);
                 adapter.notifyDataSetChanged();
 
+
             }
         });
 

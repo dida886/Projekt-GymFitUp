@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">GymFit</string>
     <string name="pruba">Button</string>
+    <string name="dodaj">Dodaj</string>
+    <string name="kg">Obciążenie (Kg)</string>
+    <string name="wartość_obciążenia">1</string>
 </resources>
