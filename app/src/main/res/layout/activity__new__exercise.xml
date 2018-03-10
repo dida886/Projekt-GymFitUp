@@ -11,12 +11,11 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
+
+
         android:layout_alignParentTop="true"
-
-
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="12dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
         android:text="@string/kg"
         android:textColor="@android:color/black"
         android:textSize="30sp"
@@ -26,8 +25,6 @@
         android:id="@+id/txtinput"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
-
-
         android:layout_alignStart="@+id/txtinput2"
         android:layout_below="@+id/textView"
         android:inputType=""
@@ -40,9 +37,9 @@
         android:layout_height="wrap_content"
 
 
-        android:layout_alignStart="@+id/textView"
         android:layout_below="@+id/txtinput"
-        android:text="Ilość Powtórzeń"
+        android:layout_centerHorizontal="true"
+        android:text="Ilość powtórzeń"
         android:textColor="@android:color/black"
         android:textSize="30sp"
         android:textStyle="bold" />
@@ -72,7 +69,53 @@
         android:layout_height="200dp"
         android:layout_below="@id/btadd"
         android:addStatesFromChildren="false">
+        android:textSize="20dp"
     </ListView>
+
+    <Button
+        android:id="@+id/IncreaseWeight"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView2"
+        android:layout_alignEnd="@+id/textView"
+        android:layout_below="@+id/textView"
+        android:layout_toEndOf="@+id/btadd"
+        android:elevation="0dp"
+        android:onClick="increaseWeight"
+        android:text="+" />
+
+    <Button
+        android:id="@+id/DecreaseWeight"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView2"
+        android:layout_alignStart="@+id/textView"
+        android:layout_below="@+id/textView"
+        android:layout_toStartOf="@+id/btadd"
+        android:onClick="decreaseWeight"
+        android:text="-" />
+
+    <Button
+        android:id="@+id/IncreaseReps"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/txtinput2"
+        android:layout_alignEnd="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:layout_toEndOf="@+id/btadd"
+        android:onClick="increaseReps"
+        android:text="+" />
+
+    <Button
+        android:id="@+id/DecreaseReps"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/txtinput2"
+        android:layout_alignStart="@+id/textView"
+        android:layout_below="@+id/textView2"
+        android:layout_toStartOf="@+id/btadd"
+        android:onClick="decreaseReps"
+        android:text="-" />
 
 
 </RelativeLayout>
