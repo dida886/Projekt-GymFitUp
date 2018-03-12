@@ -91,6 +91,7 @@
                         android:layout_height="64dp"
 
 
+                        android:background="@drawable/calendar"
                         android:padding="10dp" />
 
                     <TextView
@@ -135,6 +136,7 @@
                         android:layout_height="64dp"
 
 
+                        android:background="@drawable/bmi"
                         android:padding="10dp" />
 
                     <TextView
@@ -280,6 +282,7 @@
                         android:layout_height="64dp"
 
 
+                        android:background="@drawable/exercises"
                         android:padding="10dp" />
 
                     <TextView
