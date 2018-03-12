@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/txtinput2"
         android:layout_below="@+id/textView"
-        android:inputType=""
+        android:inputType="number"
         android:text="@string/wartość_obciążenia"
         android:textSize="30sp" />
 
@@ -50,6 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
+        android:inputType="number"
         android:text="@string/wartość_obciążenia"
         android:textSize="30sp" />
 

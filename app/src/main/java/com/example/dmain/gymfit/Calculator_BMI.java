@@ -39,11 +39,17 @@ public class Calculator_BMI extends AppCompatActivity {
 
 
                 floatWeight  = Float.parseFloat(stringWeight);
-                floatHeight= Float.parseFloat(stringHeight);
+                floatHeight = Float.parseFloat(stringHeight);
+                floatHeight = floatHeight / 100;
 
-                bmi=floatHeight/(floatWeight*floatWeight);
+                bmi=(floatWeight/(floatHeight*floatHeight));
 
 
+                String s = Float.toString(bmi);
+
+                TextView displayFloat = (TextView) findViewById(
+                        R.id.result_bmi);
+                displayFloat.setText(s);
 
             }
         });
