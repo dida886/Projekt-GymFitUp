@@ -4,79 +4,58 @@ import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-public class MainActivity extends AppCompatActivity {
-
-
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
-        switch (item.getItemId()) {
-            case R.id.calculator_bmi:
-            Intent inent = new Intent(MainActivity.this,Calculator_BMI.class);
-            startActivity(inent);
-
-
-        }
-        return true;
-    }
+private CardView histcard, bmicard,addexcard;
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public FloatingActionButton bt1;
-    public void FloatingButon(){
-
-
-        bt1=findViewById(R.id.floatingActionButton1);
-        bt1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent startNewActivity = new Intent(MainActivity.this,add_exercise.class);
-                startActivity(startNewActivity);
-            }
-        });
-    }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        FloatingButon();
+
+        // Deklaracja Card
+
+        histcard = (CardView) findViewById(R.id.histcardview);
+        bmicard = (CardView)findViewById(R.id.bmicardview);
+        addexcard = (CardView)findViewById(R.id.addcardview);
+
+        // Dodawanie activitów do card
+
+        histcard.setOnClickListener(this);
+        bmicard.setOnClickListener(this);
+        addexcard.setOnClickListener(this);
 
 
 
+
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        Intent i;
+
+        switch (v.getId()) {
+            case R.id.histcardview: i = new Intent(this, history_activity.class);startActivity(i); break;
+            case R.id.bmicardview: i = new Intent(this, Calculator_BMI.class);startActivity(i); break;
+            case R.id.addcardview: i = new Intent(this, add_exercise.class);startActivity(i); break;
+            default: break;
+
+        }
     }
 }
