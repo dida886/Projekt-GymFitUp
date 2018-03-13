@@ -11,29 +11,30 @@
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
-        android:layout_height="300dp"
         android:layout_width="match_parent"
-       >
+        android:layout_height="150dp"
+        android:background="@android:color/black">
 
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/colappsingtoolbar"
+            style="@style/Widget.Design.CollapsingToolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/heder"
             app:contentScrim="?android:attr/colorBackground"
             app:expandedTitleMarginEnd="64dp"
             app:expandedTitleMarginStart="48dp"
-            app:layout_scrollFlags="exitUntilCollapsed|scroll"
-            app:title="GymFit"
-            app:titleTextColor="@android:color/white">
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:title="GymFit">
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbarid"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
-                app:popupTheme="@style/AlertDialog.AppCompat.Light">
+                app:popupTheme="@style/AlertDialog.AppCompat.Light"
+                app:titleTextColor="@android:color/white">
 
             </android.support.v7.widget.Toolbar>
 
@@ -41,292 +42,285 @@
         </android.support.design.widget.CollapsingToolbarLayout>
 
 
-
     </android.support.design.widget.AppBarLayout>
 
 
-
-<android.support.v4.widget.NestedScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-
-
-
-
-
-    <LinearLayout
-
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="10dp"
-        android:background="#fcfcfc"
-        android:gravity="center"
-        android:id="@+id/ll">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
         <LinearLayout
-            android:clipToPadding="false"
-            android:gravity="center"
-            android:orientation="horizontal"
+
+            android:id="@+id/ll"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <android.support.v7.widget.CardView
-                android:id="@+id/histcardview"
-                android:layout_width="160dp"
-                android:layout_height="190dp"
-                android:layout_margin="10dp"
-                android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-
-
-                        android:background="@drawable/calendar"
-                        android:padding="10dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Moja Historia"
-                        android:textStyle="bold" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_margin="10dp"
-                        android:background="@color/lightgray" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:padding="5dp"
-                        android:textColor="@android:color/darker_gray" />
-
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                android:id="@+id/bmicardview"
-                android:layout_width="160dp"
-                android:layout_height="190dp"
-                android:layout_margin="10dp"
-                android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-
-
-                        android:background="@drawable/bmi"
-                        android:padding="10dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="BMI"
-                        android:textStyle="bold" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_margin="10dp"
-                        android:background="@color/lightgray" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:padding="5dp"
-                        android:textColor="@android:color/darker_gray" />
-
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-
-        </LinearLayout>
-        <LinearLayout
-            android:clipToPadding="false"
+            android:layout_height="match_parent"
+            android:background="#fcfcfc"
             android:gravity="center"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <android.support.v7.widget.CardView
-                android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:layout_width="160dp"
-                android:layout_height="190dp"
-                android:layout_margin="10dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center">
-                    <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
+            android:orientation="vertical"
+            android:padding="10dp">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal">
 
+                <android.support.v7.widget.CardView
+                    android:id="@+id/histcardview"
+                    android:layout_width="160dp"
+                    android:layout_height="190dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
 
-                        android:padding="10dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="..."
-                        android:textStyle="bold" />
-                    <View
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/lightgray"
-                        android:layout_margin="10dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:gravity="center"
-                        android:padding="5dp"
-                        android:textColor="@android:color/darker_gray" />
+                        android:orientation="vertical">
 
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-            <android.support.v7.widget.CardView
-                android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:layout_width="160dp"
-                android:layout_height="190dp"
-                android:layout_margin="10dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-
-                        android:padding="10dp"
+                        <ImageView
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
 
 
-                        />
+                            android:background="@drawable/calendar"
+                            android:padding="10dp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="..."
-                        android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Moja Historia"
+                            android:textStyle="bold" />
 
-                    <View
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="10dp"
+                            android:background="@color/lightgray" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textColor="@android:color/darker_gray"
+                            tools:text="Twoja indiwidualna baza danych ćwiczeń" />
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/bmicardview"
+                    android:layout_width="160dp"
+                    android:layout_height="190dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_margin="10dp"
-                        android:background="@color/lightgray" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:gravity="center"
-                        android:padding="5dp"
-                        android:textColor="@android:color/darker_gray" />
+                        android:orientation="vertical">
 
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
+                        <ImageView
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
 
+
+                            android:background="@drawable/bmi"
+                            android:padding="10dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="BMI"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="10dp"
+                            android:background="@color/lightgray" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textColor="@android:color/darker_gray"
+                            tools:text="Oblicz swój wskaźnik masy ciała" />
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="160dp"
+                    android:layout_height="190dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+
+
+                            android:background="@drawable/meter"
+                            android:padding="10dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Moje Postępy"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="10dp"
+                            android:background="@color/lightgray" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textColor="@android:color/darker_gray"
+                            tools:text="Wprowadź i sprawdzaj przyrost swoich mięśni" />
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="160dp"
+                    android:layout_height="190dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+
+                            android:padding="10dp"
+
+
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="..."
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="10dp"
+                            android:background="@color/lightgray" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:textColor="@android:color/darker_gray" />
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/addcardview"
+                    android:layout_width="340dp"
+                    android:layout_height="150dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+
+
+                            android:background="@drawable/exercises"
+                            android:padding="10dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Dodaj Cwiczenie"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="10dp"
+                            android:background="@color/lightgray" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="Prowadź swój dziennik, wprowazając dane"
+                            android:textColor="@android:color/darker_gray" />
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+
+            </LinearLayout>
         </LinearLayout>
-        <LinearLayout
-            android:clipToPadding="false"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <android.support.v7.widget.CardView
-                android:id="@+id/addcardview"
-                android:layout_width="340dp"
-                android:layout_height="150dp"
-                android:layout_margin="10dp"
-                android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground">
-
-                <LinearLayout
-
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
 
 
-                        android:background="@drawable/exercises"
-                        android:padding="10dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Dodaj Cwiczenie"
-                        android:textStyle="bold" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_margin="10dp"
-                        android:background="@color/lightgray" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:padding="5dp"
-                        android:text="Prowadź swój dziennik, wprowazając dane"
-                        android:textColor="@android:color/darker_gray" />
-
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-
-
-        </LinearLayout>
-    </LinearLayout>
-
-
-
-
-
-
-
-</android.support.v4.widget.NestedScrollView>
-
-
-
-
-
-
-
+    </android.support.v4.widget.NestedScrollView>
 
 
 </android.support.design.widget.CoordinatorLayout>
