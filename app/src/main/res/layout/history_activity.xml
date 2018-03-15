@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.dmain.gymfit.history_activity">
 
-</android.support.constraint.ConstraintLayout>
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:addStatesFromChildren="true"
+        android:alwaysDrawnWithCache="true"
+        android:animateLayoutChanges="true"
+        android:animationCache="true"
+        android:clickable="true"
+        android:clipChildren="true"
+        android:clipToPadding="true"
+        android:contextClickable="true"
+        android:defaultFocusHighlightEnabled="true"
+        android:fadeScrollbars="true"
+        android:filterTouchesWhenObscured="false"
+        android:focusedMonthDateColor="@android:color/white"
+        android:keepScreenOn="false"
+        android:keyboardNavigationCluster="false"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="117dp" />
+</RelativeLayout>
