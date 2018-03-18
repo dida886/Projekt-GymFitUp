@@ -44,12 +44,33 @@ public class Calculator_BMI extends AppCompatActivity {
 
                 bmi=(floatWeight/(floatHeight*floatHeight));
 
+                if(bmi<18.5)
+                {
+                    TextView bmi_description =(TextView) findViewById(R.id.bmi_description);
+                    bmi_description.setText("Masz niedowagę");
+
+                }
+                else if(bmi>18.5 && bmi<24.99)
+                {
+                    TextView bmi_description =(TextView) findViewById(R.id.bmi_description);
+                    bmi_description.setText("Waga prawidłowa");
+
+                }
+                else if(bmi>24.99)
+                {
+                    TextView bmi_description =(TextView) findViewById(R.id.bmi_description);
+                    bmi_description.setText("Masz nadwagę");
+                }
+
 
                 String s = Float.toString(bmi);
 
                 TextView displayFloat = (TextView) findViewById(
                         R.id.result_bmi);
                 displayFloat.setText(s);
+
+
+
 
             }
         });

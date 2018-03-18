@@ -11,18 +11,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="Podaj wagę"
+        android:layout_marginEnd="21dp"
+        android:layout_marginTop="35dp"
+        android:layout_toStartOf="@+id/button"
+        android:text="Waga"
         android:textSize="30sp" />
 
     <EditText
         android:id="@+id/editText_weight"
         android:layout_width="60dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+        android:layout_alignStart="@+id/textView3_bmi_weight"
         android:layout_below="@+id/textView3_bmi_weight"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
         android:inputType="number"
         android:textSize="30sp" />
@@ -31,19 +32,18 @@
         android:id="@+id/textView4_bmi_height"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editText_weight"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:text="Podaj wzrost"
+        android:layout_alignBaseline="@+id/textView3_bmi_weight"
+        android:layout_alignBottom="@+id/textView3_bmi_weight"
+        android:layout_toEndOf="@+id/button"
+        android:text="Wzrost"
         android:textSize="30sp" />
 
     <EditText
         android:id="@+id/editText2_height"
         android:layout_width="60dp"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/editText_weight"
-        android:layout_below="@+id/textView4_bmi_height"
-        android:layout_marginTop="17dp"
+        android:layout_height="60dp"
+        android:layout_alignStart="@+id/textView4_bmi_height"
+        android:layout_alignTop="@+id/tv_weight"
         android:ems="10"
         android:inputType="number"
         android:textSize="30sp" />
@@ -54,16 +54,43 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/editText2_height"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="Button" />
+        android:layout_marginTop="46dp"
+        android:text="Oblicz" />
 
     <TextView
         android:id="@+id/result_bmi"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/button"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="58dp"
         android:text=" "
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/bmi_description"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/result_bmi"
+        android:layout_below="@+id/result_bmi"
+        android:layout_marginTop="71dp"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/tv_weight"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignTop="@+id/editText_weight"
+        android:layout_toEndOf="@+id/editText_weight"
+        android:text="Kg"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/tv_height"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignTop="@+id/editText2_height"
+        android:layout_toEndOf="@+id/editText2_height"
+        android:text="cm"
         android:textSize="40sp" />
 </RelativeLayout>
