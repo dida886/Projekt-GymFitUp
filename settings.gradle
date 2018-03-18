@@ -1,1 +1,1 @@
-include ':app', ':gymfit-library'
+include ':app'
