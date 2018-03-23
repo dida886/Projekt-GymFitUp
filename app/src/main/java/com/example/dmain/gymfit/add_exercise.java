@@ -29,34 +29,10 @@ public class add_exercise extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                if(position==0)
-                {
-                    Intent myintent= new Intent(view.getContext(),Activity_New_Exercise.class);
-                    startActivityForResult(myintent,0);
-                }
-                if(position==1)
-                {
-                    Intent myintent= new Intent(view.getContext(),Activity_New_Exercise.class);
-                    startActivityForResult(myintent,1);
-                }
-
-                if(position==2)
-                {
-                    Intent myintent= new Intent(view.getContext(),Activity_New_Exercise.class);
-                    startActivityForResult(myintent,2);
-                }
-                if(position==3)
-                {
-                    Intent myintent= new Intent(view.getContext(),Activity_New_Exercise.class);
-                    startActivityForResult(myintent,3);
-                }
-                if(position==4)
-                {
-                    Intent myintent= new Intent(view.getContext(),Activity_New_Exercise.class);
-                    startActivityForResult(myintent,4);
-                }
 
 
+                Intent myintent= new Intent(view.getContext(),Activity_New_Exercise.class);
+                startActivityForResult(myintent, position);
 
             }
         });

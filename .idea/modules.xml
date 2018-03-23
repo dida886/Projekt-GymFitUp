@@ -4,8 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Projekt-GymFitUp.iml" filepath="$PROJECT_DIR$/Projekt-GymFitUp.iml" />
       <module fileurl="file://C:\Users\dmain\Documents\Projekt-GymFitUp\Projekt-GymFitUp.iml" filepath="C:\Users\dmain\Documents\Projekt-GymFitUp\Projekt-GymFitUp.iml" />
+      <module fileurl="file://C:\Users\Sebastian\Documents\Projekt-GymFitUp\Projekt-GymFitUp.iml" filepath="C:\Users\Sebastian\Documents\Projekt-GymFitUp\Projekt-GymFitUp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://C:\Users\dmain\Documents\Projekt-GymFitUp\app\app.iml" filepath="C:\Users\dmain\Documents\Projekt-GymFitUp\app\app.iml" />
+      <module fileurl="file://C:\Users\Sebastian\Documents\Projekt-GymFitUp\app\app.iml" filepath="C:\Users\Sebastian\Documents\Projekt-GymFitUp\app\app.iml" />
     </modules>
   </component>
 </project>
