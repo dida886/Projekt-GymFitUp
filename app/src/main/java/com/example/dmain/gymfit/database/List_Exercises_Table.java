@@ -7,37 +7,41 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import static android.content.ContentValues.TAG;
-
-
 /**
- * Created by dmain on 16.03.2018.
+ * Created by dmain on 21.03.2018.
  */
 
-public class Series extends SQLiteOpenHelper {
+public class List_Exercises_Table extends SQLiteOpenHelper {
+
+
     public static final String DATABASE_NAME = "GYMFIT.db";
-    public static final String TABLE_NAME = "SERIES";
+    public static final String TABLE_NAME = "LIST_EXERCISES";
     public static final String COL1 = "ID" ;
-    public static final String COL2 = "WEIGHT";
-    public static final String COL3 = "REPS";
-    public static final String COL4 = "TIME";
+    public static final String COL2 = "NAME";
 
 
 
-
-    public Series(Context context) {
-        super(context, TABLE_NAME, null, 6);
+    public List_Exercises_Table(Context context) {
+        super(context, DATABASE_NAME, null, 23);
     }
-
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createTable = "CREATE TABLE " + Series.TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                Series.COL2 +" TEXT, " + Series.COL3 + " TEXT," + Series.COL4 +" TXT)";
+        String createTable = "CREATE TABLE " + List_Exercises_Table.TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + COL2 +" TEXT)";
         db.execSQL(createTable);
+
+        String insertsql = "INSERT OR REPLACE INTO "+ List_Exercises_Table.TABLE_NAME+" ("+ List_Exercises_Table.COL2+") VALUES('Podnoszenie Sztangi'),('Skłony')";
+
+
+
+
+        db.execSQL(insertsql);
+
+
+        Log.d("ZWRACANIE BAZY", "ITEMS: " );
+
     }
-
-
 
 
     @Override
@@ -46,11 +50,11 @@ public class Series extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean addDataSeries(String Weight, String Reps) {
+    public boolean addDataList_Exercises(String Name) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(Series.COL2, Weight);
-        contentValues.put(Series.COL3, Reps);
+        contentValues.put(COL2, Name);
+
 
 
 
@@ -63,9 +67,11 @@ public class Series extends SQLiteOpenHelper {
             return true;
         }
     }
-    public Cursor getListContentsSeries(){
+    public Cursor getListContentsList_Exercises(){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+
         return data;
     }
 }
+

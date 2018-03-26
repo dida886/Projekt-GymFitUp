@@ -10,39 +10,39 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Created by dmain on 21.03.2018.
  */
 
-public class Exercises extends SQLiteOpenHelper {
+public class Training_Table extends SQLiteOpenHelper {
 
 
 
         public static final String DATABASE_NAME = "GYMFIT.db";
-        public static final String TABLE_NAME = "EXERCISES";
+        public static final String TABLE_NAME = "TRAINING";
         public static final String COL1 = "ID" ;
-        public static final String COL2 = "ID_TRAINING";
-        public static final String COL3 = "ID_LIST_EXERCISES";
+        public static final String COL2 = "DATA";
 
 
-        public Exercises(Context context) {
-            super(context, DATABASE_NAME, null, 1);
+
+        public Training_Table(Context context) {
+            super(context, DATABASE_NAME, null, 23);
         }
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-            String createTable = "CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    "FOREIGN KEY(ID_TRAINING) REFERENCES Training(ID) "+ "FOREIGN KEY(ID_LIST_EXERCISES) REFERENCES List_Exercises(ID)) ";
+            String createTable = "CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, "
+                    + COL2 +" TEXT)";
             db.execSQL(createTable);
         }
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            db.execSQL("DROP IF TABLE EXISTS " + TABLE_NAME);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
             onCreate(db);
         }
 
-        public boolean addDataExercises(String item1, String item2) {
+        public boolean addDataTraining(String DATA) {
             SQLiteDatabase db = this.getWritableDatabase();
             ContentValues contentValues = new ContentValues();
-            contentValues.put(COL2, item1);
-            contentValues.put(COL3, item2);
+            contentValues.put(COL2, DATA);
+
 
 
 
@@ -55,7 +55,7 @@ public class Exercises extends SQLiteOpenHelper {
                 return true;
             }
         }
-        public Cursor getListContentsExercises(){
+        public Cursor getListContentsTraining (){
             SQLiteDatabase db = this.getWritableDatabase();
             Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
             return data;
