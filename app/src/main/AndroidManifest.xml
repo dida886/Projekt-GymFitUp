@@ -19,7 +19,7 @@
         <activity android:name=".Activity_New_Exercise" />
         <activity android:name=".add_exercise" />
         <activity android:name=".Calculator_BMI" />
-        <activity android:name=".history_activity"></activity>
+        <activity android:name=".history_activity" />
     </application>
 
 </manifest>

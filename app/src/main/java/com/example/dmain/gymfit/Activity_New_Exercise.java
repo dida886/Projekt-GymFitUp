@@ -39,6 +39,7 @@
             setContentView(R.layout.activity__new__exercise);
 
 
+
             listAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,theList);
 
             editText = (EditText) findViewById(R.id.txtinput);
@@ -52,10 +53,13 @@
 
             if(series.size() == 0){
                 Toast.makeText(this, "There are no contents in this list!",Toast.LENGTH_LONG).show();
+
             }else{
+
                 for (Serie s : series) theList.add(s.toString());
 
                 listView.setAdapter(listAdapter);
+
             }
 
 
@@ -73,10 +77,12 @@
                     String date = simpleDateFormat.format(new Date());
 
 
+
                     if (editText.length() != 0 && editText2.length() != 0) {
                         AddData(newEntry, newEntry2, date);
                         editText.setText("");
                         editText2.setText("");
+
 
                     } else {
                         Toast.makeText(Activity_New_Exercise.this, "You must put something in the text field!", Toast.LENGTH_LONG).show();
@@ -98,11 +104,11 @@
 
 
 
-//                        if (insertData) {
-//                            Toast.makeText(Activity_New_Exercise.this, "Data Sucses", Toast.LENGTH_LONG).show();
-//                        } else {
-//                            Toast.makeText(Activity_New_Exercise.this, "Something wrong", Toast.LENGTH_LONG).show();
-//                        }
+                        /*if () {
+                          Toast.makeText(Activity_New_Exercise.this, "Data Sucses", Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast.makeText(Activity_New_Exercise.this, "Something wrong", Toast.LENGTH_LONG).show();
+                        }*/
                     }
 
 

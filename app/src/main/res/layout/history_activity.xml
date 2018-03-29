@@ -1,29 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.dmain.gymfit.history_activity">
+    android:orientation="vertical"
+    >
 
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/capturescreen"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:addStatesFromChildren="true"
-        android:alwaysDrawnWithCache="true"
-        android:animateLayoutChanges="true"
-        android:animationCache="true"
-        android:clickable="true"
-        android:clipChildren="true"
-        android:clipToPadding="true"
-        android:contextClickable="true"
-        android:defaultFocusHighlightEnabled="true"
-        android:fadeScrollbars="true"
-        android:filterTouchesWhenObscured="false"
-        android:focusedMonthDateColor="@android:color/white"
-        android:keepScreenOn="false"
-        android:keyboardNavigationCluster="false"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="117dp" />
-</RelativeLayout>
+        android:text="Capture Screen" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter some text here which you will see on captured screen" />
+
+    <EditText
+        android:id="@+id/textin"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

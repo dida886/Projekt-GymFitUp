@@ -13,9 +13,9 @@
         android:layout_height="wrap_content"
 
 
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/toolbar"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="26dp"
         android:text="@string/kg"
         android:textColor="@android:color/black"
         android:textSize="30sp"
@@ -37,8 +37,9 @@
         android:layout_height="wrap_content"
 
 
+        android:layout_alignStart="@+id/DecreaseReps"
         android:layout_below="@+id/txtinput"
-        android:layout_centerHorizontal="true"
+        android:layout_marginTop="21dp"
         android:text="Ilość powtórzeń"
         android:textColor="@android:color/black"
         android:textSize="30sp"
@@ -60,15 +61,16 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtinput2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="18dp"
+        android:layout_marginTop="26dp"
         android:text="@string/dodaj" />
 
     <ListView
         android:id="@+id/listv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/btadd"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btadd"
+        android:layout_marginTop="12dp"
         android:addStatesFromChildren="false">
         android:textSize="20dp"</ListView>
 

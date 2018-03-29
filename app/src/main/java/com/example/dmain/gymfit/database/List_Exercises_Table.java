@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.util.ArrayList;
+
 /**
  * Created by dmain on 21.03.2018.
  */
@@ -16,30 +18,27 @@ public class List_Exercises_Table extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "GYMFIT.db";
     public static final String TABLE_NAME = "LIST_EXERCISES";
-    public static final String COL1 = "ID" ;
+    public static final String COL1 = "ID";
     public static final String COL2 = "NAME";
 
 
-
     public List_Exercises_Table(Context context) {
-        super(context, DATABASE_NAME, null, 23);
+        super(context, DATABASE_NAME, null, 34);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         String createTable = "CREATE TABLE " + List_Exercises_Table.TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + COL2 +" TEXT)";
+                + COL2 + " TEXT)";
         db.execSQL(createTable);
 
-        String insertsql = "INSERT OR REPLACE INTO "+ List_Exercises_Table.TABLE_NAME+" ("+ List_Exercises_Table.COL2+") VALUES('Podnoszenie Sztangi'),('Skłony')";
-
-
+        String insertsql = "INSERT OR REPLACE INTO " + List_Exercises_Table.TABLE_NAME + " (" + List_Exercises_Table.COL2 + ") VALUES('Podnoszenie Sztangi'),('Skłony')";
 
 
         db.execSQL(insertsql);
 
 
-        Log.d("ZWRACANIE BAZY", "ITEMS: " );
+        Log.d("ZWRACANIE BAZY", "ITEMS: ");
 
     }
 
@@ -56,8 +55,6 @@ public class List_Exercises_Table extends SQLiteOpenHelper {
         contentValues.put(COL2, Name);
 
 
-
-
         long result = db.insert(TABLE_NAME, null, contentValues);
 
         //if date as inserted incorrectly it will return -1
@@ -67,11 +64,29 @@ public class List_Exercises_Table extends SQLiteOpenHelper {
             return true;
         }
     }
-    public Cursor getListContentsList_Exercises(){
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
 
-        return data;
+
+    public ArrayList<ListExercise> getListContentsList_Exercises(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+
+        ArrayList<ListExercise> result = new ArrayList<ListExercise>();
+
+        if(cursor.getCount() == 0){
+            return result;
+        }
+
+        while(cursor.moveToNext()) {
+            String Name = cursor.getString(
+                    cursor.getColumnIndex(List_Exercises_Table.COL2));
+
+
+            ListExercise e = new ListExercise(Name);
+            result.add(e);
+        }
+
+        return result;
     }
+
 }
 

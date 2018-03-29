@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+
 /**
  * Created by dmain on 21.03.2018.
  */
@@ -22,13 +24,13 @@ public class Training_Table extends SQLiteOpenHelper {
 
 
         public Training_Table(Context context) {
-            super(context, DATABASE_NAME, null, 23);
+            super(context, DATABASE_NAME, null, 34);
         }
 
         @Override
         public void onCreate(SQLiteDatabase db) {
             String createTable = "CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, "
-                    + COL2 +" TEXT)";
+                    + COL2 +" DATE)";
             db.execSQL(createTable);
         }
 
@@ -55,10 +57,27 @@ public class Training_Table extends SQLiteOpenHelper {
                 return true;
             }
         }
-        public Cursor getListContentsTraining (){
-            SQLiteDatabase db = this.getWritableDatabase();
-            Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
-            return data;
-        }
-    }
 
+    public ArrayList<Training> getListContentsSeries(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+
+        ArrayList<Training> result = new ArrayList<Training>();
+
+        if(cursor.getCount() == 0){
+            return result;
+        }
+
+        while(cursor.moveToNext()) {
+
+            String itemData = cursor.getString(
+                    cursor.getColumnIndex(Series_Table.COL2));
+
+
+            Training t = new Training(itemData);
+            result.add(t);
+        }
+
+        return result;
+    }
+}
