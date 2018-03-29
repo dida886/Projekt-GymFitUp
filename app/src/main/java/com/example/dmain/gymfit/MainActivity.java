@@ -15,7 +15,7 @@ import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-private CardView histcard, bmicard,addexcard;
+private CardView histcard, bmicard,addexcard, mapcard;
 
 
 
@@ -33,12 +33,15 @@ private CardView histcard, bmicard,addexcard;
         histcard = (CardView) findViewById(R.id.histcardview);
         bmicard = (CardView)findViewById(R.id.bmicardview);
         addexcard = (CardView)findViewById(R.id.addcardview);
+        mapcard = findViewById(R.id.mapcardviev);
 
         // Dodawanie activitów do card
 
         histcard.setOnClickListener(this);
         bmicard.setOnClickListener(this);
         addexcard.setOnClickListener(this);
+        mapcard.setOnClickListener(this);
+
 
 
 
@@ -54,6 +57,7 @@ private CardView histcard, bmicard,addexcard;
             case R.id.histcardview: i = new Intent(this, history_activity.class);startActivity(i); break;
             case R.id.bmicardview: i = new Intent(this, Calculator_BMI.class);startActivity(i); break;
             case R.id.addcardview: i = new Intent(this, add_exercise.class);startActivity(i); break;
+            case R.id.mapcardviev: i = new Intent(this, MapsActivity.class);startActivity(i); break;
             default: break;
 
         }
