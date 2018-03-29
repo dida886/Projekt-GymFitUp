@@ -25,7 +25,7 @@ public class Series_Table extends SQLiteOpenHelper {
 
 
     public Series_Table(Context context) {
-        super(context, TABLE_NAME, null, 34);
+        super(context, TABLE_NAME, null, 36);
     }
 
 
@@ -55,9 +55,9 @@ public class Series_Table extends SQLiteOpenHelper {
 
         return new Serie(Long.toString(result), Weight, Reps, Time);
     }
-    public ArrayList<Serie> getListContentsSeries(){
+    public ArrayList<Serie> getListContentsSeries(int exercise_id){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE "+exercise_id+" = ?", new String[] {Integer.toString(exercise_id)});
 
         ArrayList<Serie> result = new ArrayList<Serie>();
 

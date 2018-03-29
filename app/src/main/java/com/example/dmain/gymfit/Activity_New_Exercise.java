@@ -1,6 +1,7 @@
 
         package com.example.dmain.gymfit;
 
+        import android.content.Intent;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
         import android.view.View;
@@ -40,6 +41,10 @@
 
 
 
+
+            Intent intent = getIntent();
+            int exercise_id = intent.getIntExtra("EXERCISE_ID", -1);
+
             listAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,theList);
 
             editText = (EditText) findViewById(R.id.txtinput);
@@ -49,7 +54,15 @@
             listView = (ListView) findViewById(R.id.listv);
             myDB = new Series_Table(this);
 
-            ArrayList<Serie> series = myDB.getListContentsSeries();
+            ArrayList<Serie> series = myDB.getListContentsSeries(exercise_id);
+
+
+
+
+
+
+
+
 
             if(series.size() == 0){
                 Toast.makeText(this, "There are no contents in this list!",Toast.LENGTH_LONG).show();

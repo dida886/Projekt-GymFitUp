@@ -6,22 +6,23 @@ package com.example.dmain.gymfit.database;
 
 public class ListExercise {
 
-    private  String id;
-    private  String name;
 
-   
+    private  String name;
+    public boolean id;
+
+
+
 
     public ListExercise(String name) {
         this.name= name;
         this.id = id;
-
     }
 
-    public String getId() {
+    public boolean isId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(boolean id) {
         this.id = id;
     }
 

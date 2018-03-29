@@ -23,7 +23,7 @@ public class List_Exercises_Table extends SQLiteOpenHelper {
 
 
     public List_Exercises_Table(Context context) {
-        super(context, DATABASE_NAME, null, 34);
+        super(context, DATABASE_NAME, null, 36);
     }
 
     @Override

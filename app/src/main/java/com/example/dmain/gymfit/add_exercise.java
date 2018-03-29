@@ -43,7 +43,7 @@ public class add_exercise extends AppCompatActivity {
 
         myDB = new List_Exercises_Table(this);
 
-        ArrayList<ListExercise> exercises = myDB.getListContentsList_Exercises();
+        final  ArrayList<ListExercise> exercises = myDB.getListContentsList_Exercises();
 
         if(exercises.size() == 0){
             Toast.makeText(this, "There are no contents in this list!",Toast.LENGTH_LONG).show();
@@ -64,8 +64,9 @@ public class add_exercise extends AppCompatActivity {
 
 
                 Intent intent= new Intent(view.getContext(),Activity_New_Exercise.class);
+                intent.putExtra("EXERCISE_ID", exercises.get(position).id);
                 startActivityForResult(intent, position);
-                
+
 
 
 
