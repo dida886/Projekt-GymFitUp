@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.dmain.gymfit.add_exercise">
+    tools:context=".MyResult_Activity">
     <android.support.design.widget.AppBarLayout
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
@@ -17,29 +16,8 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:title="Dodaj Ćwiczenie" />
+            app:title="Moje postępy Ćwiczeniowe" />
 
     </android.support.design.widget.AppBarLayout>
-
-    <TextView
-
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="72dp"
-        android:text="Rodzaje Cwiczeń"
-        android:textSize="30sp" />
-
-    <ListView
-        android:id="@+id/add_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="180dp" />
-
 
 </RelativeLayout>
