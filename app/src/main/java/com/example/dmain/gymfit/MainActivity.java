@@ -94,7 +94,7 @@ private CardView histcard, bmicard,addexcard, mapcard, myresult;
             case R.id.histcardview: i = new Intent(this, history_activity.class);startActivity(i); break;
             case R.id.bmicardview: i = new Intent(this, Calculator_BMI.class);startActivity(i); break;
             case R.id.addcardview: i = new Intent(this, add_exercise.class);startActivity(i); break;
-            case R.id.mapcardviev: i = new Intent(this, MapActivity.class);startActivity(i); break;
+            case R.id.mapcardviev: i = new Intent(this, Map2Activity.class);startActivity(i); break;
             case R.id.my_result_card: i = new Intent(this, MyResult_Activity.class);startActivity(i); break;
 
             default: break;
