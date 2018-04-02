@@ -8,16 +8,146 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:id="@+id/appBarLayout">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/tool_bar"
-            android:layout_width="match_parent"
+            android:layout_width="500dp"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay"
             app:title="Moje postępy Ćwiczeniowe" />
 
     </android.support.design.widget.AppBarLayout>
+
+    <EditText
+        android:id="@+id/et_arm"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_alignEnd="@+id/et_forearm"
+        android:layout_alignStart="@+id/et_forearm"
+        android:layout_below="@+id/appBarLayout"
+        android:layout_marginTop="26dp"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/et_forearm"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/et_chest"
+        android:layout_below="@+id/et_arm"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/et_chest"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/et_waist"
+        android:layout_below="@+id/et_forearm"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/et_waist"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/et_chest"
+        android:layout_marginEnd="108dp"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/et_thigh"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/et_waist"
+        android:layout_below="@+id/et_waist"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/et_calf"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/et_thigh"
+        android:layout_below="@+id/et_thigh"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/tv_arm"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/et_arm"
+        android:layout_marginStart="70dp"
+        android:text="ramię"
+        android:textSize="25dp"/>
+
+    <TextView
+        android:id="@+id/tv_forearm"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/tv_arm"
+        android:layout_below="@+id/tv_arm"
+        android:text="przedramię"
+        android:textSize="25dp"/>
+
+    <TextView
+        android:id="@+id/tv_chest"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/tv_forearm"
+        android:layout_below="@+id/tv_forearm"
+        android:text="klatka"
+        android:textSize="25dp"/>
+
+    <TextView
+        android:id="@+id/tv_waist"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/tv_chest"
+        android:layout_below="@+id/tv_chest"
+        android:text="pas"
+        android:textSize="25dp"/>
+
+    <TextView
+        android:id="@+id/tv_thigh"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/tv_waist"
+        android:layout_below="@+id/tv_waist"
+        android:text="udo"
+        android:textSize="25dp"/>
+
+    <TextView
+        android:id="@+id/tv_calf"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/tv_thigh"
+        android:layout_below="@+id/tv_thigh"
+        android:text="łydka"
+        android:textSize="25dp" />
+
+    <Button
+        android:id="@+id/b_add_results"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_calf"
+        android:layout_toEndOf="@+id/tv_arm"
+        android:text="Dodaj" />
+
+    <Button
+        android:id="@+id/b_histry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/b_add_results"
+        android:layout_marginTop="48dp"
+        android:layout_toStartOf="@+id/et_calf"
+        android:text="Historia" />
 
 </RelativeLayout>

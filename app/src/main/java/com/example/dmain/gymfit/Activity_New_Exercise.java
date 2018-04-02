@@ -57,13 +57,6 @@
             ArrayList<Serie> series = myDB.getListContentsSeries(exercise_id);
 
 
-
-
-
-
-
-
-
             if(series.size() == 0){
                 Toast.makeText(this, "There are no contents in this list!",Toast.LENGTH_LONG).show();
 
