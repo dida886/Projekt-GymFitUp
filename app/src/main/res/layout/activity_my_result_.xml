@@ -137,17 +137,18 @@
         android:id="@+id/b_add_results"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_calf"
-        android:layout_toEndOf="@+id/tv_arm"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="169dp"
         android:text="Dodaj" />
 
     <Button
         android:id="@+id/b_histry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/b_add_results"
-        android:layout_marginTop="48dp"
-        android:layout_toStartOf="@+id/et_calf"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="95dp"
         android:text="Historia" />
 
 </RelativeLayout>

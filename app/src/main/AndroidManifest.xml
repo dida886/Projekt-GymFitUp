@@ -26,10 +26,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity_New_Exercise" />
-        <activity android:name=".add_exercise" />
-        <activity android:name=".Calculator_BMI" />
-        <activity android:name=".history_activity" />
+        <activity android:name=".Series_ExercisesActivity" />
+        <activity android:name=".Add_ExercisesActivity" />
+        <activity android:name=".Calculator_BMI_Activity" />
+        <activity android:name=".HistoryActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").

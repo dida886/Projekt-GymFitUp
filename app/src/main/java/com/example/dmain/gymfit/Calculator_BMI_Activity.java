@@ -8,7 +8,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class Calculator_BMI extends AppCompatActivity {
+public class Calculator_BMI_Activity extends AppCompatActivity {
     private EditText editText_weight;
     private EditText editText2_height;
     private TextView result;

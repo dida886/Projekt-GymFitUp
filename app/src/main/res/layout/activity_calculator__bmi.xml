@@ -28,7 +28,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:context="com.example.dmain.gymfit.Calculator_BMI">
+            tools:context="com.example.dmain.gymfit.Calculator_BMI_Activity">
 
             <TextView
                 android:id="@+id/textView3_bmi_weight"

@@ -9,7 +9,6 @@
         import android.widget.BaseAdapter;
         import android.widget.Button;
         import android.widget.EditText;
-        import android.widget.ListAdapter;
         import android.widget.ListView;
         import android.widget.Toast;
 
@@ -21,7 +20,7 @@
         import java.util.ArrayList;
         import java.util.Date;
 
-        public class Activity_New_Exercise extends AppCompatActivity {
+        public class Series_ExercisesActivity extends AppCompatActivity {
 
         int weight = 1,reps=1,series=1;
 
@@ -91,7 +90,7 @@
 
 
                     } else {
-                        Toast.makeText(Activity_New_Exercise.this, "You must put something in the text field!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Series_ExercisesActivity.this, "You must put something in the text field!", Toast.LENGTH_LONG).show();
                     }
 
                 }
@@ -111,9 +110,9 @@
 
 
                         /*if () {
-                          Toast.makeText(Activity_New_Exercise.this, "Data Sucses", Toast.LENGTH_LONG).show();
+                          Toast.makeText(Series_ExercisesActivity.this, "Data Sucses", Toast.LENGTH_LONG).show();
                         } else {
-                            Toast.makeText(Activity_New_Exercise.this, "Something wrong", Toast.LENGTH_LONG).show();
+                            Toast.makeText(Series_ExercisesActivity.this, "Something wrong", Toast.LENGTH_LONG).show();
                         }*/
                     }
 

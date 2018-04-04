@@ -3,17 +3,11 @@ package com.example.dmain.gymfit;
 
 import android.app.Dialog;
 import android.content.Intent;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -91,9 +85,9 @@ private CardView histcard, bmicard,addexcard, mapcard, myresult;
         Intent i;
 
         switch (v.getId()) {
-            case R.id.histcardview: i = new Intent(this, history_activity.class);startActivity(i); break;
-            case R.id.bmicardview: i = new Intent(this, Calculator_BMI.class);startActivity(i); break;
-            case R.id.addcardview: i = new Intent(this, add_exercise.class);startActivity(i); break;
+            case R.id.histcardview: i = new Intent(this, HistoryActivity.class);startActivity(i); break;
+            case R.id.bmicardview: i = new Intent(this, Calculator_BMI_Activity.class);startActivity(i); break;
+            case R.id.addcardview: i = new Intent(this, Add_ExercisesActivity.class);startActivity(i); break;
             case R.id.mapcardviev: i = new Intent(this, Map2Activity.class);startActivity(i); break;
             case R.id.my_result_card: i = new Intent(this, MyResult_Activity.class);startActivity(i); break;
 

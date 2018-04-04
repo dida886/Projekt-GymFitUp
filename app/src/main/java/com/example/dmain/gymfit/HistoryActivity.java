@@ -24,7 +24,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class history_activity extends AppCompatActivity {
+public class HistoryActivity extends AppCompatActivity {
 
 
     @Override
