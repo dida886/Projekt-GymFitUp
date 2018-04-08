@@ -45,6 +45,8 @@ private CardView histcard, bmicard,addexcard;
 
     }
 
+
+
     @Override
     public void onClick(View v) {
 
