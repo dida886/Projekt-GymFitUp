@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class Body_Circuits extends SQLiteOpenHelper{
 
-    public static final String DATABASE_NAME = "body.db";
+    public static final String DATABASE_NAME = "GYMFIT.db";
     public static final String TABLE_NAME = "body_circuits";
     public static final String ID = "ID";
     public static final String ARM = "ARM";
@@ -20,7 +20,7 @@ public class Body_Circuits extends SQLiteOpenHelper{
     public static final String DATA = "DATA";
 
     public Body_Circuits(Context context) {
-        super(context, DATABASE_NAME, null, 5);
+        super(context, DATABASE_NAME, null, 37);
 
     }
 
