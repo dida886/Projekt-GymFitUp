@@ -23,7 +23,7 @@ public class List_Exercises_Table extends SQLiteOpenHelper {
 
 
     public List_Exercises_Table(Context context) {
-        super(context, DATABASE_NAME, null, 37);
+        super(context, DATABASE_NAME, null, 38);
     }
 
     @Override
@@ -49,7 +49,7 @@ public class List_Exercises_Table extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean addDataList_Exercises(String Name, String Id) {
+    public boolean addDataList_Exercises(String Name) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
@@ -81,9 +81,10 @@ public class List_Exercises_Table extends SQLiteOpenHelper {
         while(cursor.moveToNext()) {
             String Name = cursor.getString(
                     cursor.getColumnIndex(List_Exercises_Table.NAME_COL));
+            int id = cursor.getInt(
+                    cursor.getColumnIndex(List_Exercises_Table.ID_COL));
 
-
-            ListExercise e = new ListExercise(Name);
+            ListExercise e = new ListExercise(id, Name);
             result.add(e);
         }
 

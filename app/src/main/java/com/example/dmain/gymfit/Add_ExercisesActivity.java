@@ -65,6 +65,8 @@ public class Add_ExercisesActivity extends AppCompatActivity {
 
                 Intent intent= new Intent(view.getContext(),Series_ExercisesActivity.class);
                 intent.putExtra("EXERCISE_ID", exercises.get(position).id);
+                String ID = Integer.toString(exercises.get(position).id);
+                Toast.makeText(Add_ExercisesActivity.this, "XE ID: " + ID, Toast.LENGTH_LONG).show();
                 startActivityForResult(intent, position);
 
 

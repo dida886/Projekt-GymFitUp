@@ -8,22 +8,18 @@ public class ListExercise {
 
 
     private  String name;
-    public boolean id;
+    public int id;
 
 
 
 
-    public ListExercise(String name) {
+    public ListExercise(int id, String name) {
         this.name= name;
         this.id = id;
     }
 
-    public boolean isId() {
+    public int getId() {
         return id;
-    }
-
-    public void setId(boolean id) {
-        this.id = id;
     }
 
     public String getName() {

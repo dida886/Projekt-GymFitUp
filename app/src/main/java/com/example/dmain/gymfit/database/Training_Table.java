@@ -24,7 +24,7 @@ public class Training_Table extends SQLiteOpenHelper {
 
 
         public Training_Table(Context context) {
-            super(context, DATABASE_NAME, null, 37);
+            super(context, DATABASE_NAME, null, 38);
         }
 
         @Override
