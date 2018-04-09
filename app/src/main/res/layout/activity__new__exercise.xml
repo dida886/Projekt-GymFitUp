@@ -127,6 +127,14 @@
         android:onClick="decreaseReps"
         android:text="-" />
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/btadd"
+        android:layout_marginEnd="29dp"
+        android:text="Stoper" />
 
 
 </RelativeLayout>

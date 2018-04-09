@@ -18,8 +18,8 @@ public class Training_Table extends SQLiteOpenHelper {
 
         public static final String DATABASE_NAME = "GYMFIT.db";
         public static final String TABLE_NAME = "TRAINING";
-        public static final String COL1 = "ID" ;
-        public static final String COL2 = "DATA";
+        public static final String ID_COL = "ID" ;
+        public static final String DATA_COL = "DATA";
 
 
 
@@ -29,21 +29,21 @@ public class Training_Table extends SQLiteOpenHelper {
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-            String createTable = "CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, "
-                    + COL2 +" DATE)";
+            String createTable = "CREATE TABLE " + Training_Table.TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, "
+                    + Training_Table.DATA_COL +" DATE)";
             db.execSQL(createTable);
         }
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+            db.execSQL("DROP TABLE IF EXISTS " + Training_Table.TABLE_NAME);
             onCreate(db);
         }
 
         public boolean addDataTraining(String DATA) {
             SQLiteDatabase db = this.getWritableDatabase();
             ContentValues contentValues = new ContentValues();
-            contentValues.put(COL2, DATA);
+            contentValues.put(Training_Table.DATA_COL, DATA);
 
 
 
@@ -60,7 +60,7 @@ public class Training_Table extends SQLiteOpenHelper {
 
     public ArrayList<Training> getListContentsSeries(){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + Training_Table.TABLE_NAME, null);
 
         ArrayList<Training> result = new ArrayList<Training>();
 
@@ -71,7 +71,7 @@ public class Training_Table extends SQLiteOpenHelper {
         while(cursor.moveToNext()) {
 
             String itemData = cursor.getString(
-                    cursor.getColumnIndex(Series_Table.COL2));
+                    cursor.getColumnIndex(Training_Table.DATA_COL));
 
 
             Training t = new Training(itemData);

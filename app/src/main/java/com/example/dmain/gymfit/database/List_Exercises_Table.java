@@ -18,8 +18,8 @@ public class List_Exercises_Table extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "GYMFIT.db";
     public static final String TABLE_NAME = "LIST_EXERCISES";
-    public static final String COL1 = "ID";
-    public static final String COL2 = "NAME";
+    public static final String ID_COL = "ID";
+    public static final String NAME_COL = "NAME";
 
 
     public List_Exercises_Table(Context context) {
@@ -29,10 +29,10 @@ public class List_Exercises_Table extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String createTable = "CREATE TABLE " + List_Exercises_Table.TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + COL2 + " TEXT)";
+                + NAME_COL + " TEXT)";
         db.execSQL(createTable);
 
-        String insertsql = "INSERT OR REPLACE INTO " + List_Exercises_Table.TABLE_NAME + " (" + List_Exercises_Table.COL2 + ") VALUES('Podnoszenie Sztangi'),('Skłony')";
+        String insertsql = "INSERT OR REPLACE INTO " + List_Exercises_Table.TABLE_NAME + " (" + List_Exercises_Table.NAME_COL + ") VALUES('Podnoszenie Sztangi'),('Skłony')";
 
 
         db.execSQL(insertsql);
@@ -53,7 +53,7 @@ public class List_Exercises_Table extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(COL2, Name);
+        contentValues.put(NAME_COL, Name);
 
 
 
@@ -80,7 +80,7 @@ public class List_Exercises_Table extends SQLiteOpenHelper {
 
         while(cursor.moveToNext()) {
             String Name = cursor.getString(
-                    cursor.getColumnIndex(List_Exercises_Table.COL2));
+                    cursor.getColumnIndex(List_Exercises_Table.NAME_COL));
 
 
             ListExercise e = new ListExercise(Name);

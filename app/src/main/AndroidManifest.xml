@@ -46,7 +46,8 @@
             android:name=".MapActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".MyResult_Activity" />
-        <activity android:name=".Map2Activity"></activity>
+        <activity android:name=".Map2Activity" />
+        <activity android:name=".StoperwatchActivity"></activity>
     </application>
 
 </manifest>

@@ -16,10 +16,10 @@ import java.util.ArrayList;
 public class Series_Table extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "GYMFIT.db";
     public static final String TABLE_NAME = "SERIES";
-    public static final String COL1 = "ID" ;
-    public static final String COL2 = "WEIGHT";
-    public static final String COL3 = "REPS";
-    public static final String COL4 = "TIME";
+    public static final String ID_COL = "ID" ;
+    public static final String WEIGHT_COL = "WEIGHT";
+    public static final String REPS_COL = "REPS";
+    public static final String TIME_COL = "TIME";
 
 
 
@@ -32,7 +32,7 @@ public class Series_Table extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String createTable = "CREATE TABLE " + Series_Table.TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                Series_Table.COL2 +" TEXT, " + Series_Table.COL3 + " TEXT," + Series_Table.COL4 +" TXT)";
+                Series_Table.WEIGHT_COL +" TEXT, " + Series_Table.REPS_COL + " TEXT," + Series_Table.TIME_COL +" TXT)";
         db.execSQL(createTable);
     }
 
@@ -48,9 +48,9 @@ public class Series_Table extends SQLiteOpenHelper {
     public Serie addDataSeries(String Weight, String Reps, String Time) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(Series_Table.COL2, Weight);
-        contentValues.put(Series_Table.COL3, Reps);
-        contentValues.put(Series_Table.COL4, Time);
+        contentValues.put(Series_Table.WEIGHT_COL, Weight);
+        contentValues.put(Series_Table.REPS_COL, Reps);
+        contentValues.put(Series_Table.TIME_COL, Time);
         long result = db.insert(TABLE_NAME, null, contentValues);
 
         return new Serie(Long.toString(result), Weight, Reps, Time);
@@ -67,13 +67,13 @@ public class Series_Table extends SQLiteOpenHelper {
 
         while(cursor.moveToNext()) {
             String itemID = cursor.getString(
-                    cursor.getColumnIndex(Series_Table.COL1));
+                    cursor.getColumnIndex(Series_Table.ID_COL));
             String itemWeight = cursor.getString(
-                    cursor.getColumnIndex(Series_Table.COL2));
+                    cursor.getColumnIndex(Series_Table.WEIGHT_COL));
             String itemReps = cursor.getString(
-                    cursor.getColumnIndex(Series_Table.COL3));
+                    cursor.getColumnIndex(Series_Table.REPS_COL));
             String itemTime = cursor.getString(
-                    cursor.getColumnIndex(Series_Table.COL4));
+                    cursor.getColumnIndex(Series_Table.TIME_COL));
 
             Serie s = new Serie(itemID, itemWeight, itemReps, itemTime);
             result.add(s);

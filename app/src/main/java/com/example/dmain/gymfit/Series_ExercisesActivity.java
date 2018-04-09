@@ -38,6 +38,14 @@
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity__new__exercise);
 
+            final Button button = findViewById(R.id.button2);
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(Series_ExercisesActivity.this,StoperwatchActivity.class) );
+                }
+            });
+
 
 
 
@@ -115,6 +123,13 @@
                             Toast.makeText(Series_ExercisesActivity.this, "Something wrong", Toast.LENGTH_LONG).show();
                         }*/
                     }
+
+
+
+
+
+
+
 
 
                     public void increaseWeight(View view) {
