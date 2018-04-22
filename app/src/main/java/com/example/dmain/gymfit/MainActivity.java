@@ -87,7 +87,7 @@ private CardView histcard, bmicard,addexcard, mapcard, myresult;
         switch (v.getId()) {
             case R.id.histcardview: i = new Intent(this, HistoryActivity.class);startActivity(i); break;
             case R.id.bmicardview: i = new Intent(this, Calculator_BMI_Activity.class);startActivity(i); break;
-            case R.id.addcardview: i = new Intent(this, Add_ExercisesActivity.class);startActivity(i); break;
+            case R.id.addcardview: i = new Intent(this, Add_Exercises_ListActivity.class);startActivity(i); break;
             case R.id.mapcardviev: i = new Intent(this, Map2Activity.class);startActivity(i); break;
             case R.id.my_result_card: i = new Intent(this, MyResult_Activity.class);startActivity(i); break;
 

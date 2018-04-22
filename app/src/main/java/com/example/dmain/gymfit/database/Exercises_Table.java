@@ -22,7 +22,7 @@ public class Exercises_Table extends SQLiteOpenHelper {
 
 
     public Exercises_Table(Context context) {
-        super(context, DATABASE_NAME, null, 38);
+        super(context, DATABASE_NAME, null, 54);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class Exercises_Table extends SQLiteOpenHelper {
                 + Exercises_Table.ID_COL + " integer primary key autoincrement, "
                 + Exercises_Table.ID_TRAINING_COL + " integer, "
                 + Exercises_Table.ID_LIST_EXERCISES + " integer, "
-                + " FOREIGN KEY ("+ Exercises_Table.ID_TRAINING_COL+") REFERENCES "+ Training_Table.TABLE_NAME+" ("+ Training_Table.ID_COL+")"
+
                 + " FOREIGN KEY ("+ Exercises_Table.ID_LIST_EXERCISES+") REFERENCES "+ List_Exercises_Table.TABLE_NAME+" ("+ List_Exercises_Table.ID_COL+"));";
         db.execSQL(createTable);
     }

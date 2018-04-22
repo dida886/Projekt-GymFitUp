@@ -82,14 +82,17 @@ public class Series_ExercisesActivity extends AppCompatActivity {
                 String newEntry2 = editText2.getText().toString();
 
 
-                String pattern = "hh:mm";
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+                String t = "hh:mm";
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat(t);
+                String time = simpleDateFormat.format(new Date());
 
-                String date = simpleDateFormat.format(new Date());
+                String d = "ddMMyy";
+                SimpleDateFormat simpleDateFormat1= new SimpleDateFormat(d);
+                String date = simpleDateFormat1.format(new Date());
 
 
                 if (editText.length() != 0 && editText2.length() != 0) {
-                    AddData(newEntry, newEntry2, date, exercise_id);
+                    AddData(newEntry, newEntry2, time, exercise_id, date);
                     editText.setText("");
                     editText2.setText("");
 
@@ -103,8 +106,8 @@ public class Series_ExercisesActivity extends AppCompatActivity {
         });
     }
 
-    public void AddData(String newEntry, String newEntry2, String date, int exercise_id) {
-        Serie s = myDB.addDataSeries(newEntry, newEntry2, date, exercise_id);
+    public void AddData(String newEntry, String newEntry2, String time, int exercise_id, String date) {
+        Serie s = myDB.addDataSeries(newEntry, newEntry2, time, exercise_id, date);
         theList.add(s.toString());
 
 

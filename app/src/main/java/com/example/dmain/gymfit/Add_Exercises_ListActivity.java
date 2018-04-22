@@ -15,7 +15,7 @@ import com.example.dmain.gymfit.database.List_Exercises_Table;
 
 import java.util.ArrayList;
 
-public class Add_ExercisesActivity extends AppCompatActivity {
+public class Add_Exercises_ListActivity extends AppCompatActivity {
 
    List_Exercises_Table myDB;
    ListView listView;
@@ -66,7 +66,7 @@ public class Add_ExercisesActivity extends AppCompatActivity {
                 Intent intent= new Intent(view.getContext(),Series_ExercisesActivity.class);
                 intent.putExtra("EXERCISE_ID", exercises.get(position).id);
                 String ID = Integer.toString(exercises.get(position).id);
-                Toast.makeText(Add_ExercisesActivity.this, "XE ID: " + ID, Toast.LENGTH_LONG).show();
+                Toast.makeText(Add_Exercises_ListActivity.this, "XE ID: " + ID, Toast.LENGTH_LONG).show();
                 startActivityForResult(intent, position);
 
 

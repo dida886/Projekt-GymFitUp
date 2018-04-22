@@ -23,7 +23,7 @@ public class List_Exercises_Table extends SQLiteOpenHelper {
 
 
     public List_Exercises_Table(Context context) {
-        super(context, DATABASE_NAME, null, 38);
+        super(context, DATABASE_NAME, null, 54);
     }
 
     @Override
@@ -56,7 +56,6 @@ public class List_Exercises_Table extends SQLiteOpenHelper {
         contentValues.put(NAME_COL, Name);
 
 
-
         long result = db.insert(TABLE_NAME, null, contentValues);
 
         //if date as inserted incorrectly it will return -1
@@ -68,17 +67,17 @@ public class List_Exercises_Table extends SQLiteOpenHelper {
     }
 
 
-    public ArrayList<ListExercise> getListContentsList_Exercises(){
+    public ArrayList<ListExercise> getListContentsList_Exercises() {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
 
         ArrayList<ListExercise> result = new ArrayList<ListExercise>();
 
-        if(cursor.getCount() == 0){
+        if (cursor.getCount() == 0) {
             return result;
         }
 
-        while(cursor.moveToNext()) {
+        while (cursor.moveToNext()) {
             String Name = cursor.getString(
                     cursor.getColumnIndex(List_Exercises_Table.NAME_COL));
             int id = cursor.getInt(
@@ -91,5 +90,8 @@ public class List_Exercises_Table extends SQLiteOpenHelper {
         return result;
     }
 
+
+
 }
+
 

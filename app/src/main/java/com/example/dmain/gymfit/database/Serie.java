@@ -10,15 +10,25 @@ public class Serie {
     private String weight;
     private String reps;
     private String time;
+    private String date;
 
-    public Serie(String id, String weight, String reps, String time) {
+    public Serie(String id, String weight, String reps, String time,String date) {
 
 
         this.id = id;
         this.weight = weight;
         this.reps = reps;
         this.time = time;
+        this.date= date;
 
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getWeight() {

@@ -9,13 +9,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.dmain.gymfit.database.Body_Circuits;
+import com.example.dmain.gymfit.database.Body_Circuits_Table;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class MyResult_Activity extends AppCompatActivity {
-    Body_Circuits myDb;
+    Body_Circuits_Table myDb;
     EditText editarm, editforearm,editchest,editwaist,editthigh,editcalf;
     Button btnAddData;
     Button btnviewAll;
@@ -24,7 +24,7 @@ public class MyResult_Activity extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_result_);
-        myDb = new Body_Circuits(this);
+        myDb = new Body_Circuits_Table(this);
 
         editarm = findViewById(R.id.et_arm);
         editforearm = findViewById(R.id.et_forearm);

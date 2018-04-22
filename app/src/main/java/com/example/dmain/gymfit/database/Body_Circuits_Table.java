@@ -6,9 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class Body_Circuits extends SQLiteOpenHelper{
+public class Body_Circuits_Table extends SQLiteOpenHelper{
 
-    public static final String DATABASE_NAME = "body.db";
+    public static final String DATABASE_NAME = "GYMFIT.db";
     public static final String TABLE_NAME = "body_circuits";
     public static final String ID = "ID";
     public static final String ARM = "ARM";
@@ -19,8 +19,8 @@ public class Body_Circuits extends SQLiteOpenHelper{
     public static final String CALF = "CALF";
     public static final String DATA = "DATA";
 
-    public Body_Circuits(Context context) {
-        super(context, DATABASE_NAME, null, 5);
+    public Body_Circuits_Table(Context context) {
+        super(context, DATABASE_NAME, null, 54);
 
     }
 
