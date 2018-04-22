@@ -19,7 +19,7 @@ public class Data_Table extends SQLiteOpenHelper {public static final String DAT
 
 
     public Data_Table(Context context) {
-        super(context, TABLE_NAME, null, 54);
+        super(context, TABLE_NAME, null, 56);
     }
 
 
