@@ -8,16 +8,19 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class Calculator_BMI extends AppCompatActivity {
+public class Calculator_BMI_Activity extends AppCompatActivity {
     private EditText editText_weight;
     private EditText editText2_height;
     private TextView result;
     float bmi=0,floatWeight=0,floatHeight=0;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator__bmi);
+
+
 
         editText_weight = (EditText) findViewById(R.id.editText_weight);
         editText2_height = (EditText) findViewById(R.id.editText2_height);

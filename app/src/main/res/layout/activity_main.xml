@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/heder"
-            app:contentScrim="?android:attr/colorBackground"
+            app:contentScrim="#000000"
             app:expandedTitleMarginEnd="64dp"
             app:expandedTitleMarginStart="48dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
@@ -170,6 +170,7 @@
                 android:orientation="horizontal">
 
                 <android.support.v7.widget.CardView
+                    android:id="@+id/my_result_card"
                     android:layout_width="160dp"
                     android:layout_height="190dp"
                     android:layout_margin="10dp"
@@ -215,6 +216,7 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
+                    android:id="@+id/mapcardviev"
                     android:layout_width="160dp"
                     android:layout_height="190dp"
                     android:layout_margin="10dp"
