@@ -27,7 +27,7 @@ public class Series_Table extends SQLiteOpenHelper {
 
 
     public Series_Table(Context context) {
-        super(context, TABLE_NAME, null, 54);
+        super(context, TABLE_NAME, null, 56);
     }
 
 

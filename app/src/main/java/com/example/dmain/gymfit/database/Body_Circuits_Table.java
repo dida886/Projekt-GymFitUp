@@ -20,7 +20,7 @@ public class Body_Circuits_Table extends SQLiteOpenHelper{
     public static final String DATA = "DATA";
 
     public Body_Circuits_Table(Context context) {
-        super(context, DATABASE_NAME, null, 54);
+        super(context, DATABASE_NAME, null, 56);
 
     }
 
