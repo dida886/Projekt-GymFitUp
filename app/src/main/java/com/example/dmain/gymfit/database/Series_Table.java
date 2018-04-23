@@ -60,8 +60,8 @@ public class Series_Table  {
 
 
 
-
-        return new Serie(Long.toString(result), se.getWeight(), se.getReps(), se.getTime(),se.getDate(),se.getExercise_id());
+        return new Serie(result, se.getWeight(), se.getReps(), se.getTime(),se.getDate(),se.getExercise_id());
+        db.insert(Series_Table.TABLE_NAME, null, contentValues);
         DatabaseManager.getInstance().closeDatabase();
     }
     public ArrayList<Serie> getSeries(int exercise_id){
@@ -77,19 +77,15 @@ public class Series_Table  {
         }
 
         while(cursor.moveToNext()) {
-            String itemID = cursor.getString(
-                    cursor.getColumnIndex(Series_Table.ID_COL));
-            String itemWeight = cursor.getString(
-                    cursor.getColumnIndex(Series_Table.WEIGHT_COL));
-            String itemReps = cursor.getString(
-                    cursor.getColumnIndex(Series_Table.REPS_COL));
-            String itemTime = cursor.getString(
-                    cursor.getColumnIndex(Series_Table.TIME_COL));
-            String itemDate = cursor.getString(
-                    cursor.getColumnIndex(Series_Table.DATE_COL));
+            String itemID = cursor.getString(cursor.getColumnIndex(Series_Table.ID_COL));
+            String itemWeight = cursor.getString(cursor.getColumnIndex(Series_Table.WEIGHT_COL));
+            String itemReps = cursor.getString(cursor.getColumnIndex(Series_Table.REPS_COL));
+            String itemTime = cursor.getString(cursor.getColumnIndex(Series_Table.TIME_COL));
+            String itemDate = cursor.getString(cursor.getColumnIndex(Series_Table.DATE_COL));
+            String exerciseID = cursor.getString(cursor.getColumnIndex(Series_Table.EXERCISE_ID_COL));
 
 
-            Serie s = new Serie(itemID, itemWeight, itemReps, itemTime,itemDate);
+            Serie s = new Serie(exerciseID, itemID, itemWeight, itemReps, itemTime,itemDate);
             result.add(s);
         }
         DatabaseManager.getInstance().closeDatabase();
@@ -126,5 +122,5 @@ public class Series_Table  {
         DatabaseManager.getInstance().closeDatabase();
         return result;
 
-    }
-}*/
+    }*/
+}

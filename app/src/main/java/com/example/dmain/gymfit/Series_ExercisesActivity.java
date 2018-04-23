@@ -59,7 +59,7 @@ public class Series_ExercisesActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listv);
         myDB = new Series_Table(this);
 
-        ArrayList<Serie> series = myDB.getListContentsSeries(exercise_id);
+        ArrayList<Serie> series = myDB.getSeries(exercise_id);
 
 
         if (series.size() == 0) {

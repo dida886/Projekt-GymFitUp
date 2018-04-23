@@ -35,15 +35,15 @@ public class Add_Exercises_ListActivity extends AppCompatActivity {
 
 
         listView = (ListView) findViewById(R.id.add_list);
-        myDB = new List_Exercises_Table(this);
+
         theList = new ArrayList<>();
         baseAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,theList);
 
 
 
-        myDB = new List_Exercises_Table(this);
 
-        final  ArrayList<ListExercise> exercises = myDB.getListContentsList_Exercises();
+
+        final  ArrayList<ListExercise> exercises = myDB.getList_Exercises();
 
         if(exercises.size() == 0){
             Toast.makeText(this, "There are no contents in this list!",Toast.LENGTH_LONG).show();
@@ -60,12 +60,12 @@ public class Add_Exercises_ListActivity extends AppCompatActivity {
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long Id) {
 
 
                 Intent intent= new Intent(view.getContext(),Series_ExercisesActivity.class);
-                intent.putExtra("EXERCISE_ID", exercises.get(position).id);
-                String ID = Integer.toString(exercises.get(position).id);
+                intent.putExtra("EXERCISE_ID", exercises.get(position).Id);
+                String ID = Integer.toString(exercises.get(position).Id);
                 Toast.makeText(Add_Exercises_ListActivity.this, "XE ID: " + ID, Toast.LENGTH_LONG).show();
                 startActivityForResult(intent, position);
 

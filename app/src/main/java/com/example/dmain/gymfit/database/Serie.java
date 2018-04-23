@@ -6,56 +6,80 @@ package com.example.dmain.gymfit.database;
 
 public class Serie {
 
-    private String id;
-    private String weight;
-    private String reps;
-    private String time;
-    private String date;
+    private String Id;
+    private String Weight;
+    private String Reps;
+    private String Time;
+    private String Date;
+    private String exercise_id;
 
-    public Serie(String id, String weight, String reps, String time,String date) {
+
+    public Serie(String id, String weight, String reps, String time,String date, String exercise_id) {
 
 
-        this.id = id;
-        this.weight = weight;
-        this.reps = reps;
-        this.time = time;
-        this.date= date;
+        this.Id = id;
+        this.Weight = weight;
+        this.Reps = reps;
+        this.Time = time;
+        this.Date= date;
+        this.exercise_id=exercise_id;
+
 
     }
 
-    public String getDate() {
-        return date;
+
+
+    public String getId() {
+        return Id;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setId(String id) {
+        Id = id;
     }
 
     public String getWeight() {
-        return weight;
+        return Weight;
     }
 
     public void setWeight(String weight) {
-        this.weight = weight;
+        Weight = weight;
     }
 
     public String getReps() {
-        return reps;
+        return Reps;
     }
 
     public void setReps(String reps) {
-        this.reps = reps;
+        Reps = reps;
     }
 
     public String getTime() {
-        return time;
+        return Time;
     }
 
     public void setTime(String time) {
-        this.time = time;
+        Time = time;
     }
 
+    public String getDate() {
+        return Date;
+    }
+
+    public void setDate(String date) {
+        Date = date;
+    }
+
+    public String getExercise_id() {
+        return exercise_id;
+    }
+
+    public void setExercise_id(String exercise_id) {
+        this.exercise_id = exercise_id;
+    }
+
+
+
     public String toString(){
-        return this.id + ".  "+ this.weight+ " powtórzeń " + this.reps+" Kg "+"               "+ this.time;
+        return this.Id + ".  "+ this.Weight+ " powtórzeń " + this.Reps+" Kg "+"               "+ this.Time;
     }
 }

@@ -6,36 +6,31 @@ package com.example.dmain.gymfit.database;
 
 public class ListExercise {
 
-
-    private  String name;
-    public int id;
-
-
-
+    private String Name;
+    public int Id;
 
     public ListExercise(int id, String name) {
-        this.name= name;
-        this.id = id;
+        this.Name = name;
+        this.Id = id;
     }
 
     public int getId() {
-        return id;
+        return Id;
     }
 
     public String getName() {
-        return name;
+        return Name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.Name = name;
     }
 
-    public String toString(){
-        return this.name;
+    public String toString() {
+        return this.Name;
 
     }
 
 
-
-    }
+}
 

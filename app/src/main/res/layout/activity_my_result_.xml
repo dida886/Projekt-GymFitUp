@@ -178,8 +178,9 @@
 
     <ListView
         android:id="@+id/LV_Result"
+        android:layout_below="@+id/b_add_results"
         android:layout_width="match_parent"
-        android:layout_height="195dp"
+        android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:gravity="center" />

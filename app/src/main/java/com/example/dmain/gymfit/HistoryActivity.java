@@ -59,10 +59,10 @@ public class HistoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.history_activity);
         listView = (ListView) findViewById(R.id.datelist);
-        myDB = new List_Exercises_Table(this);
+
         theList = new ArrayList<>();
         baseAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, theList);
-        myDB = new List_Exercises_Table(this);
+
         //final ArrayList<Serie>  seriedata = dbSerie_table.getListContentsSeriesDate(date)
 
         CalendarView simpleCalendarView = (CalendarView) findViewById(R.id.calendar); // get the reference of CalendarView
@@ -89,7 +89,7 @@ public class HistoryActivity extends AppCompatActivity {
                     if (dayOfMonth+month+year==calendarz) {
 
 
-                    final ArrayList<ListExercise> exercises = myDB.getListContentsList_Exercises();
+                    final ArrayList<ListExercise> exercises = myDB.getList_Exercises();
 
 
                     if (exercises.size() == 0) {
@@ -109,7 +109,7 @@ public class HistoryActivity extends AppCompatActivity {
 
 
                             Intent intent = new Intent(view.getContext(), History_DetailsActivity.class);
-                            intent.putExtra("EXERCISE_ID", exercises.get(position).id);
+                            intent.putExtra("EXERCISE_ID", exercises.get(position).Id);
 
                             startActivityForResult(intent, position);
 
