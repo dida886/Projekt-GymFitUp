@@ -10,66 +10,40 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.dmain.gymfit.database.ListExercise;
-import com.example.dmain.gymfit.database.List_Exercises_Table;
+import com.example.dmain.gymfit.database.models.ListExercise;
+import com.example.dmain.gymfit.database.tables.ExercisesTable;
 
 import java.util.ArrayList;
 
 public class Add_Exercises_ListActivity extends AppCompatActivity {
 
-   List_Exercises_Table myDB;
-   ListView listView;
-   ArrayList theList;
-   BaseAdapter baseAdapter;
-
-
-
-
+    ListView mListView;
+    BaseAdapter mBaseAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_exercise);
 
+        final ArrayList<ListExercise> exercises = ExercisesTable.getAll();
+        mBaseAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, exercises);
 
+        mListView = findViewById(R.id.add_list);
 
-
-        listView = (ListView) findViewById(R.id.add_list);
-        myDB = new List_Exercises_Table(this);
-        theList = new ArrayList<>();
-        baseAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,theList);
-
-
-
-        myDB = new List_Exercises_Table(this);
-
-        final  ArrayList<ListExercise> exercises = myDB.getListContentsList_Exercises();
-
-        if(exercises.size() == 0){
-            Toast.makeText(this, "There are no contents in this list!",Toast.LENGTH_LONG).show();
-
-        }else{
-
-            for (ListExercise e : exercises) theList.add(e.toString());
-
-            listView.setAdapter(baseAdapter);
-
+        if (exercises.size() == 0) {
+            Toast.makeText(this, "There are no contents in this list!", Toast.LENGTH_LONG).show();
+        } else {
+            mListView.setAdapter(mBaseAdapter);
         }
 
-
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-
-                Intent intent= new Intent(view.getContext(),Series_ExercisesActivity.class);
-                intent.putExtra("EXERCISE_ID", exercises.get(position).id);
-                String ID = Integer.toString(exercises.get(position).id);
+                Intent intent = new Intent(view.getContext(), Series_ExercisesActivity.class);
+                intent.putExtra("EXERCISE_ID", exercises.get(position).getId());
+                String ID = Integer.toString(exercises.get(position).getId());
                 Toast.makeText(Add_Exercises_ListActivity.this, "XE ID: " + ID, Toast.LENGTH_LONG).show();
                 startActivityForResult(intent, position);
-
-
 
 
             }
