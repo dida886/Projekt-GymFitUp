@@ -14,12 +14,15 @@ import android.widget.Toast;
 import com.example.dmain.gymfit.database.models.Series;
 import com.example.dmain.gymfit.database.tables.SeriesTable;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Series_ExercisesActivity extends AppCompatActivity {
 
-    int weight = 1, reps = 1, series = 1;
+    int  reps = 1, series = 1;
+    double weight = 1;
 
     Button btnAdd;
     EditText editText, editText2;
@@ -70,6 +73,10 @@ public class Series_ExercisesActivity extends AppCompatActivity {
 
                 String newEntry = editText.getText().toString();
                 String newEntry2 = editText2.getText().toString();
+                Date date = new Date();
+                SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
+                String time = formatter.format(date);
+
 
                 if (editText.length() != 0 && editText2.length() != 0) {
                     Series s = new Series(
@@ -77,7 +84,10 @@ public class Series_ExercisesActivity extends AppCompatActivity {
                             Double.parseDouble(newEntry),
                             Integer.parseInt(newEntry2),
                             new Date(),
-                            exercise_id
+                            exercise_id,
+                            newEntry,
+                            time
+
                     );
 
                     SeriesTable.insert(s);
@@ -95,19 +105,25 @@ public class Series_ExercisesActivity extends AppCompatActivity {
         });
     }
 
+    public void Date(int day,int month, int year){
+
+
+
+    }
+
     public void increaseWeight(View view) {
-        weight = weight + 1;
+        weight = weight + 0.5;
         displayWeight(weight);
     }
 
     public void decreaseWeight(View view) {
         if (weight > 1) {
-            weight = weight - 1;
+            weight = weight - 0.5;
         }
         displayWeight(weight);
     }
 
-    private void displayWeight(int number) {
+    private void displayWeight(double number) {
         EditText displayInteger = (EditText) findViewById(
                 R.id.txtinput);
         displayInteger.setText("" + number);

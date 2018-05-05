@@ -3,8 +3,23 @@
     <string name="pruba">Button</string>
     <string name="dodaj">Dodaj</string>
     <string name="kg">Obciążenie (Kg)</string>
-    <string name="wartość_obciążenia">1</string>
+    <string name="wartość_obciążenia">1.0</string>
     <string name="calculator_bmi">Kalkulator BMI</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_maps">Map</string>
+    <string name="wartość_powtorzen">1</string>
+    <string name="choose">Wybierz ćwiczenie</string>
+
+    <string name="prompt">Choose a country</string>
+    <string-array name="countries_array">
+        <item>TRENING MIĘŚNI KLATKI PIERSIOWEJ</item>
+        <item>TRENING MIĘŚNI GRZBIETU</item>
+        <item>TRENING MIĘŚNI NARAMIENNYCH</item>
+        <item>TRENING MIĘŚNI DWUGŁOWYCH RAMION (BICEPSÓW)</item>
+        <item>TRENING MIĘŚNI RAMIENNYCH ORAZ PRZEDRAMION</item>
+        <item>TRENING MIĘŚNI BRZUCHA</item>
+        <item>TRENING MIĘŚNI NÓG</item>
+        <item>TRENING MIĘŚNI POŚLADKOWYCH</item>
+        <item>TRENING MIĘŚNI PODUDZI (ŁYDEK I PISZCZELI)</item>
+    </string-array>
 </resources>
