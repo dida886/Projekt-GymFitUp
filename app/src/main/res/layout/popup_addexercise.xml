@@ -2,9 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.dmain.gymfit.Series_ExercisesActivity">
+    android:layout_width="350dp"
+    android:layout_height="550dp"
+    tools:context="com.example.dmain.gymfit.Popup_Exercise">
     <android.support.design.widget.AppBarLayout
 
         android:layout_width="match_parent"
@@ -21,6 +21,36 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <TextView
+        android:id="@+id/textView5_choose_exercises"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:text="@string/choose"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:text="@string/prompt"
+        />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="125dp"
+        android:prompt="@string/prompt" />
+
 
     <TextView
         android:id="@+id/textView"
@@ -28,9 +58,9 @@
         android:layout_height="wrap_content"
 
 
-        android:layout_above="@+id/txtinput"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="-108dp"
+        android:layout_marginTop="170dp"
         android:text="@string/kg"
         android:textColor="@android:color/black"
         android:textSize="30sp"
@@ -38,15 +68,15 @@
 
     <EditText
         android:id="@+id/txtinput"
-        android:layout_width="70dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="230dp"
+        android:gravity="center"
         android:inputType="number"
         android:text="@string/wartość_obciążenia"
-        android:textSize="30sp"
-        android:gravity="center"/>
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/textView2"
@@ -54,9 +84,9 @@
         android:layout_height="wrap_content"
 
 
-        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="177dp"
+        android:layout_marginBottom="206dp"
         android:text="Ilość powtórzeń"
         android:textColor="@android:color/black"
         android:textSize="30sp"
@@ -64,80 +94,66 @@
 
     <EditText
         android:id="@+id/txtinput2"
-        android:layout_width="50dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="120dp"
+        android:gravity="center"
         android:inputType="number"
         android:text="@string/wartość_powtorzen"
-        android:textSize="30sp"
-        android:gravity="center"/>
+        android:textSize="30sp" />
 
     <Button
         android:id="@+id/btadd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtinput2"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="26dp"
+        android:layout_marginBottom="30dp"
         android:text="@string/dodaj" />
 
-    <ListView
-        android:id="@+id/listv"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/btadd"
-        android:layout_marginTop="12dp"
-        android:addStatesFromChildren="false"
-        android:textSize="20dp"
-        android:gravity="center" />
 
     <Button
         android:id="@+id/IncreaseWeight"
-        android:layout_width="65dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/txtinput"
-        android:layout_toEndOf="@+id/btadd"
+        android:layout_alignEnd="@+id/textView5_choose_exercises"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="230dp"
         android:elevation="0dp"
-        android:onClick="increaseWeight"
+        android:onClick="increaseWeight1"
         android:text="+" />
 
     <Button
         android:id="@+id/DecreaseWeight"
-        android:layout_width="65dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/txtinput"
-        android:layout_alignStart="@+id/textView"
-        android:onClick="decreaseWeight"
+        android:layout_alignStart="@+id/textView5_choose_exercises"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="230dp"
+        android:onClick="decreaseWeight1"
         android:text="-" />
 
     <Button
         android:id="@+id/IncreaseReps"
-        android:layout_width="65dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/txtinput2"
-        android:layout_alignEnd="@+id/textView"
-        android:onClick="increaseReps"
+        android:layout_alignBottom="@+id/txtinput2"
+        android:layout_alignEnd="@+id/textView5_choose_exercises"
+        android:layout_marginBottom="0dp"
+        android:onClick="increaseReps1"
         android:text="+" />
 
     <Button
         android:id="@+id/DecreaseReps"
-        android:layout_width="65dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/txtinput2"
-        android:layout_alignStart="@+id/textView"
-        android:onClick="decreaseReps"
-        android:text="-" />
-
-    <Button
-        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/btadd"
-        android:layout_marginEnd="29dp"
-        android:text="Stoper" />
+        android:layout_alignBottom="@+id/txtinput2"
+        android:layout_alignStart="@+id/textView5_choose_exercises"
+        android:layout_marginBottom="0dp"
+        android:onClick="decreaseReps1"
+        android:text="-" />
 
 
 </RelativeLayout>

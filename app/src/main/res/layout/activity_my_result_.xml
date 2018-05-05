@@ -6,6 +6,42 @@
     android:layout_height="match_parent"
     tools:context=".MyResult_Activity">
 
+    <TextView
+        android:id="@+id/tv_unit_cm_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tv_unit_cm_1"
+        android:layout_below="@+id/et_chest"
+        android:text="cm"
+        android:textSize="29dp" />
+
+    <TextView
+        android:id="@+id/tv_unit_cm_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tv_unit_cm_1"
+        android:layout_below="@+id/et_waist"
+        android:text="cm"
+        android:textSize="29dp" />
+
+    <TextView
+        android:id="@+id/tv_unit_cm_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tv_unit_cm_1"
+        android:layout_below="@+id/et_thigh"
+        android:text="cm"
+        android:textSize="29dp" />
+
+    <TextView
+        android:id="@+id/tv_unit_cm_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tv_unit_cm_1"
+        android:layout_below="@+id/et_forearm"
+        android:text="cm"
+        android:textSize="29dp" />
+
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,29 +54,154 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:title="Moje postępy" />
+            app:title="Moje postępy Ćwiczeniowe" />
 
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+    <EditText
+        android:id="@+id/et_arm"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_alignEnd="@+id/et_forearm"
+        android:layout_alignStart="@+id/et_forearm"
+        android:layout_below="@+id/appBarLayout"
+        android:layout_marginTop="26dp"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/et_forearm"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/tv_arm"
+        android:layout_toStartOf="@+id/tv_unit_cm_1"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/et_chest"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/et_forearm"
+        android:layout_toStartOf="@+id/tv_unit_cm_1"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/et_waist"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/et_arm"
+        android:layout_below="@+id/et_chest"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/et_thigh"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/et_arm"
+        android:layout_below="@+id/et_waist"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/et_calf"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/et_arm"
+        android:layout_below="@+id/et_thigh"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/tv_arm"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/tv_forearm"
+        android:layout_alignTop="@+id/et_arm"
+        android:text="ramię"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/tv_forearm"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_gravity="end|bottom"
-        android:layout_marginBottom="51dp"
-        android:layout_marginEnd="52dp"
-        android:src="@drawable/ic_action_name"
-        app:backgroundTint="@color/cardview_light_background"
-        app:rippleColor="@color/cardview_light_background" />
+        android:layout_height="40dp"
+        android:layout_below="@+id/et_arm"
+        android:layout_toStartOf="@+id/et_arm"
+        android:text="przedramię"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/tv_chest"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/tv_forearm"
+        android:layout_below="@+id/tv_forearm"
+        android:text="klatka"
+        android:textSize="25dp"/>
+
+    <TextView
+        android:id="@+id/tv_waist"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/tv_chest"
+        android:layout_below="@+id/tv_chest"
+        android:text="pas"
+        android:textSize="25dp"/>
+
+    <TextView
+        android:id="@+id/tv_thigh"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/tv_waist"
+        android:layout_below="@+id/tv_waist"
+        android:text="udo"
+        android:textSize="25dp"/>
+
+    <TextView
+        android:id="@+id/tv_calf"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/tv_thigh"
+        android:layout_below="@+id/tv_thigh"
+        android:text="łydka"
+        android:textSize="25dp" />
+
+    <Button
+        android:id="@+id/b_add_results"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/et_calf"
+        android:layout_centerHorizontal="true"
+        android:text="Dodaj" />
 
     <ListView
         android:id="@+id/LV_Result"
+        android:layout_below="@+id/b_add_results"
         android:layout_width="match_parent"
-        android:layout_height="562dp"
+        android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:gravity="center" />
+
+    <TextView
+        android:id="@+id/tv_unit_cm_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/et_arm"
+        android:layout_marginEnd="85dp"
+        android:text="cm"
+        android:textSize="29dp" />
+
+    <TextView
+        android:id="@+id/tv_unit_cm_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tv_unit_cm_1"
+        android:layout_below="@+id/et_arm"
+        android:text="cm"
+        android:textSize="29dp" />
 
 </RelativeLayout>

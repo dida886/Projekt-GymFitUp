@@ -1,5 +1,6 @@
 package com.example.dmain.gymfit.database.models;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -12,15 +13,21 @@ public class Series {
     private double Weight;
     private int Repetitions;
     private Date Date;
+    private String ExercisesName;
+    private String Time2;
 
     private int ExerciseId;
 
-    public Series(int id, double weight, int reptitions, Date date, int exerciseId) {
+    public Series(int id, double weight, int reptitions, Date date, int exerciseId, String exercisesName, String time) {
         Id = id;
         Weight = weight;
         Repetitions = reptitions;
         Date = date;
         ExerciseId = exerciseId;
+        ExercisesName = exercisesName;
+        Time2 = time;
+
+
     }
 
     public int getId() {
@@ -59,10 +66,33 @@ public class Series {
         ExerciseId = exerciseId;
     }
 
-    public String toString(){
-        return String.valueOf(this.Id) + ".  "
-                + String.valueOf(this.Weight) + " powtórzeń "
-                + String.valueOf(this.Repetitions) +" Kg "
-                + this.Date.toString();
+    public String getExercisesName() {
+        return ExercisesName;
     }
+
+    public void setExercisesName(String exercisesName) {
+        ExercisesName = exercisesName;
+    }
+
+    public String getTime2() {
+        return Time2;
+    }
+
+    public void setTime2(String time) {
+        Time2 = time;
+    }
+
+    public String toString() {
+
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+
+        return String.format(String.format(String.valueOf(this.Id) + ".  "
+                + String.valueOf(this.ExercisesName)
+                + String.valueOf(this.Weight) + " Kg "
+                + String.valueOf(this.Repetitions) + " powtórzeń "
+                + String.valueOf(this.Time2)
+                + formatter.format(this.Date)));
+    }
+
+
 }
