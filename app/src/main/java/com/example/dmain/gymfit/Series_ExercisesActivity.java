@@ -86,7 +86,7 @@ public class Series_ExercisesActivity extends AppCompatActivity {
                             new Date(),
                             exercise_id,
                             newEntry,
-                            time
+                            new Date()
 
                     );
 

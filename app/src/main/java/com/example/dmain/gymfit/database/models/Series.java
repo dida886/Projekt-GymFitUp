@@ -14,11 +14,11 @@ public class Series {
     private int Repetitions;
     private Date Date;
     private String ExercisesName;
-    private String Time2;
+    private Date Time2;
 
     private int ExerciseId;
 
-    public Series(int id, double weight, int reptitions, Date date, int exerciseId, String exercisesName, String time) {
+    public Series(int id, double weight, int reptitions, Date date, int exerciseId, String exercisesName, Date time) {
         Id = id;
         Weight = weight;
         Repetitions = reptitions;
@@ -74,13 +74,22 @@ public class Series {
         ExercisesName = exercisesName;
     }
 
-    public String getTime2() {
+    public Date getTime2() {
         return Time2;
     }
 
-    public void setTime2(String time) {
+    public void setTime2(Date time) {
         Time2 = time;
     }
+
+
+    public String getMyTime(){
+
+        SimpleDateFormat formatter = new SimpleDateFormat("HH-mm");
+        return String.format(formatter.format(this.Date));
+
+    }
+
 
     public String toString() {
 

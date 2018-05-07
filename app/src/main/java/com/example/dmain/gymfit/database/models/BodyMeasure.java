@@ -1,8 +1,14 @@
 package com.example.dmain.gymfit.database.models;
 
+import com.example.dmain.gymfit.R;
+
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class BodyMeasure {
+
+
+    int[] icon = {R.drawable.calendar,};
     private int Id;
     private double Arm;
     private double Forearm;
@@ -81,5 +87,21 @@ public class BodyMeasure {
 
     public void setDate(Date date) {
         Date = date;
+    }
+
+    public int[] getIcon() {
+        return icon;
+    }
+
+    public void setIcon(int[] icon) {
+        this.icon = icon;
+    }
+
+    public String myDate(){
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+
+
+        return String.format(formatter.format(this.Date));
+
     }
 }

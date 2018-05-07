@@ -35,7 +35,7 @@ public class SeriesTable {
                 + WEIGHT_COL +" DOUBLE, "
                 + REPS_COL + " INTEGER,"
                 + DATE_COL + " LONG,"
-                + TIME_COL + " STRING, "
+                + TIME_COL + " LONG, "
                 + EXERCISE_ID_COL + " INT"
                 + ")";
     }
@@ -49,7 +49,7 @@ public class SeriesTable {
         contentValues.put(SeriesTable.REPS_COL, se.getRepetitions());
         contentValues.put(SeriesTable.EXERCISE_ID_COL, se.getExerciseId());
         contentValues.put(SeriesTable.DATE_COL, se.getDate().getTime());
-        contentValues.put(SeriesTable.TIME_COL, se.getTime2());
+        contentValues.put(SeriesTable.TIME_COL, se.getDate().getTime());
 
         int result = (int)db.insert(TABLE_NAME, null, contentValues);
         DatabaseManager.getInstance().closeDatabase();
@@ -80,7 +80,7 @@ public class SeriesTable {
             int eid = cursor.getInt(cursor.getColumnIndex(EXERCISE_ID_COL));
             String time2= cursor.getString(cursor.getColumnIndex(TIME_COL));
 
-            Series s = new Series(id,weight, reps, new Date(date), eid,name, time2);
+            Series s = new Series(id,weight, reps, new Date(date), eid,name,  new Date(time2));
             result.add(s);
         }
         DatabaseManager.getInstance().closeDatabase();
@@ -104,9 +104,9 @@ public class SeriesTable {
             int reps = cursor.getInt(cursor.getColumnIndex(REPS_COL));
             long date = cursor.getLong(cursor.getColumnIndex(DATE_COL));
             int eid = cursor.getInt(cursor.getColumnIndex(EXERCISE_ID_COL));
-            String time2 = cursor.getString(cursor.getColumnIndex(TIME_COL));
+            long time2 = cursor.getLong(cursor.getColumnIndex(TIME_COL));
 
-            Series s = new Series(id,weight, reps, new Date(date), eid,name ,time2);
+            Series s = new Series(id,weight, reps, new Date(date), eid,name ,new Date(time2));
             result.add(s);
         }
         DatabaseManager.getInstance().closeDatabase();

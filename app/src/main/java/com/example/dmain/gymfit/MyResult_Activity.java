@@ -11,21 +11,32 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.dmain.gymfit.database.models.BodyMeasure;
+import com.example.dmain.gymfit.database.models.HistoryListAdapter;
+import com.example.dmain.gymfit.database.models.MyResultListAdapter;
+import com.example.dmain.gymfit.database.models.Series;
 import com.example.dmain.gymfit.database.tables.BodyMeasuresTable;
+import com.example.dmain.gymfit.database.tables.SeriesTable;
 
 import java.util.ArrayList;
 
 public class MyResult_Activity extends AppCompatActivity {
 
-
+    int[] icon = {R.drawable.arm,
+            R.drawable.forearm,
+            R.drawable.chest,
+            R.drawable.waist,
+            R.drawable.thigh,
+            R.drawable.calf,};
     FloatingActionButton fab;
 
     final ArrayList<String> theList = new ArrayList<>();
 
     BaseAdapter listAdapter;
     ListView listView;
+    MyResultListAdapter adapter;
 
 
     @Override
@@ -35,12 +46,18 @@ public class MyResult_Activity extends AppCompatActivity {
 
         fab = findViewById(R.id.fab);
 
-        listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, theList);
         listView = findViewById(R.id.LV_Result);
-        listView.setAdapter(listAdapter);
 
-        ArrayList<BodyMeasure> measures = BodyMeasuresTable.getAll();
-        viewItemsInList(measures);
+        final ArrayList<BodyMeasure> bodyMeasures = BodyMeasuresTable.getAll();
+        adapter = new MyResultListAdapter(getApplicationContext(),bodyMeasures, icon);
+        if (bodyMeasures.size() == 0) {
+            Toast.makeText(this, "There are no contents in this list!", Toast.LENGTH_LONG).show();
+        } else {
+            listView.setAdapter(adapter);
+
+        }
+
+
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,27 +69,7 @@ public class MyResult_Activity extends AppCompatActivity {
         });
 
     }
-    private void viewItemsInList (ArrayList < BodyMeasure > measures) {
-        theList.clear();
-        if (measures.size() == 0) {
-            showMessage("Informacja", "Brak jakichkolwiek pomiarów w bazie");
-            return;
-        }
 
-        for (BodyMeasure bm : measures) {
-            StringBuffer buffer = new StringBuffer();
-            buffer.append("Data : ").append(bm.getDate().toString()).append("\n");
-            buffer.append("Ramię : ").append(bm.getArm()).append(" cm\n");
-            buffer.append("Przedramię : ").append(bm.getForearm()).append(" cm\n");
-            buffer.append("Klatka : ").append(bm.getChest()).append(" cm\n");
-            buffer.append("Pas : ").append(bm.getWaist()).append(" cm\n");
-            buffer.append("Udo : ").append(bm.getTight()).append(" cm\n");
-            buffer.append("Łydka : ").append(bm.getCalf()).append(" cm\n \n");
-            theList.add(buffer.toString());
-        }
-
-        listAdapter.notifyDataSetChanged();
-    }
     public void showMessage (String title, String Message){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
