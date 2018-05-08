@@ -8,8 +8,8 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -36,13 +36,10 @@ public class HistoryActivity extends AppCompatActivity {
     ListView mListView;
 
 
-
-
     TextView textCalendar;
     Calendar calendar;
     FloatingActionButton addbtn;
     Dialog myDialog;
-
 
 
     int day, month, year;
@@ -55,16 +52,21 @@ public class HistoryActivity extends AppCompatActivity {
 
         int[] Icon = {R.drawable.weight,
                 R.drawable.hantle};
-
-        int[] Colors = {R.color.red,
-                R.color.black,
-                R.color.blue,
-                R.color.fiolet,
-                R.color.yelow,
+        int[]Colors = {
+                R.color.red,
                 R.color.green,
+                R.color.blue,
                 R.color.sblue,
                 R.color.orange,
-                R.color.pink};
+                R.color.yelow,
+                R.color.muj,
+        };
+
+        int nextImageIndex=0;
+
+
+
+
 
 
         myDialog = new Dialog(this);
@@ -102,27 +104,20 @@ public class HistoryActivity extends AppCompatActivity {
 
         mListView = findViewById(R.id.datelist);
 
+
         final ArrayList<Series> series = SeriesTable.getAll2();
-        mainAdapter = new HistoryListAdapter(getApplicationContext(), series, Icon, Colors);
+        final ArrayList<ListExercise> exercises = ExercisesTable.getAll();
+        mainAdapter = new HistoryListAdapter(getApplicationContext(), series, exercises, Icon);
 
         if (series.size() == 0) {
             Toast.makeText(this, "There are no contents in this list!", Toast.LENGTH_LONG).show();
-
 
 
         } else {
             mListView.setAdapter(mainAdapter);
 
 
-
-
         }
-
-
-
-
-
-
 
 
 
@@ -143,6 +138,14 @@ public class HistoryActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+
+
+                Button repsplus,repsminus,weightplus,weightminus;
+
+                repsplus = findViewById(R.id.IncreaseReps);
+                repsminus =findViewById(R.id.DecreaseReps);
+                weightminus= findViewById(R.id.DecreaseWeight);
+                weightplus = findViewById(R.id.IncreaseWeight);
 
 
                 Button btnAdd;
@@ -166,12 +169,15 @@ public class HistoryActivity extends AppCompatActivity {
 
                 final ArrayList<ListExercise> exercises = ExercisesTable.getAll();
                 ArrayList<String> theList = new ArrayList<>();
-                for (ListExercise e : exercises) theList.add(e.getName());
+                for (ListExercise e : exercises) theList.add(e.toString());
 
                 adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, theList);
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinner.setAdapter(adapter);
+
                 spinner.setOnItemSelectedListener(new MyOnItemSelectedListener());
+
+
 
 
                 btnAdd.setOnClickListener(new View.OnClickListener() {
@@ -203,18 +209,19 @@ public class HistoryActivity extends AppCompatActivity {
                                     new Date(),
                                     exercise_id,
                                     spinnerString,
-                                    new Date()
+                                    new Date(),
+                                    nPos
+
 
                             );
 
                             SeriesTable.insert(s);
                             mainAdapter.notifyDataSetChanged();
-                            adapter.notifyDataSetChanged();
+                            mainAdapter.notifyDataSetChanged();
 
 
                             editText.setText("");
                             editText2.setText("");
-
 
 
                         } else {

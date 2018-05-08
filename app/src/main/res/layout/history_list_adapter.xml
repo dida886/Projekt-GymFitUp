@@ -51,7 +51,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
-        app:srcCompat="@android:color/holo_red_dark" />
+        app:srcCompat="@color/red" />
 
     <ImageView
         android:id="@+id/tv_image2"

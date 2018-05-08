@@ -16,14 +16,18 @@ public class HistoryListAdapter extends BaseAdapter {
 
     private Context mContex;
     private List<Series> mProduct;
+    private List<ListExercise> eProduct;
+    int [] Colors;
     int[] Icon;
-    int[] Colors;
 
-    public HistoryListAdapter(Context mContex, List<Series> mProduct, int[] icon, int [] colors) {
+
+    public HistoryListAdapter(Context mContex, List<Series> mProduct, List<ListExercise> eProduct, int[] icon) {
         this.mContex = mContex;
         this.mProduct = mProduct;
         this.Icon= icon;
-        this.Colors = colors;
+        /*this.Colors=Colors;*/
+        this.eProduct = eProduct;
+
     }
     @Override
     public int getCount() {
@@ -61,7 +65,12 @@ public class HistoryListAdapter extends BaseAdapter {
 
         tvTime.setText(String.valueOf(mProduct.get(position).getMyTime()));
 
-        tvImage1.setImageResource(Colors[position]);
+       int colorid= (Integer.valueOf(mProduct.get(position).getColorID()));
+
+
+
+
+        tvImage1.setImageResource(Integer.valueOf(eProduct.get(colorid).getColor()));
         tvImage2.setImageResource(Icon[0]);
         tvImage3.setImageResource(Icon[1]);
 

@@ -1,6 +1,7 @@
 package com.example.dmain.gymfit.database.models;
 
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 /**
  * Created by dmain on 28.03.2018.
@@ -9,21 +10,22 @@ import java.text.SimpleDateFormat;
 public class ListExercise {
 
     private String Name;
-    private String Color;
+    private int Color;
     private int Id;
 
 
-    public ListExercise(int id, String name, String color) {
+
+    public ListExercise(int id, String name, int color) {
         this.Name = name;
         this.Id = id;
         this.Color=color;
     }
 
-    public String getColor() {
+    public int getColor() {
         return Color;
     }
 
-    public void setColor(String color) {
+    public void setColor(int color) {
         this.Color = color;
     }
 

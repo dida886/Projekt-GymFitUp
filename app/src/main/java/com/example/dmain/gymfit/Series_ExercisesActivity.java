@@ -76,6 +76,7 @@ public class Series_ExercisesActivity extends AppCompatActivity {
                 Date date = new Date();
                 SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
                 String time = formatter.format(date);
+                int color = 0;
 
 
                 if (editText.length() != 0 && editText2.length() != 0) {
@@ -86,7 +87,8 @@ public class Series_ExercisesActivity extends AppCompatActivity {
                             new Date(),
                             exercise_id,
                             newEntry,
-                            new Date()
+                            new Date(),
+                            color
 
                     );
 

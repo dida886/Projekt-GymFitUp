@@ -15,10 +15,14 @@ public class Series {
     private Date Date;
     private String ExercisesName;
     private Date Time2;
+    private int ColorID;
 
     private int ExerciseId;
 
-    public Series(int id, double weight, int reptitions, Date date, int exerciseId, String exercisesName, Date time) {
+    public Series(int id, double weight, int reptitions, Date date, int exerciseId, String exercisesName, Date time, int colorID) {
+
+
+
         Id = id;
         Weight = weight;
         Repetitions = reptitions;
@@ -26,8 +30,18 @@ public class Series {
         ExerciseId = exerciseId;
         ExercisesName = exercisesName;
         Time2 = time;
+        ColorID= colorID;
 
 
+    }
+
+
+    public int getColorID() {
+        return ColorID;
+    }
+
+    public void setColorID(int colorID) {
+        ColorID = colorID;
     }
 
     public int getId() {

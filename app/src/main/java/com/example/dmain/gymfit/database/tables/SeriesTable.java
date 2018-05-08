@@ -22,6 +22,7 @@ public class SeriesTable {
 
     private static final String ID_COL = "ID" ;
     private static final String EXERCISE_NAME = "EXERCISE_NAME";
+    private static final String COLOR_ID_COL = "COLOR_ID";
     private static final String WEIGHT_COL = "WEIGHT";
     private static final String REPS_COL = "REPS";
     private static final String TIME_COL = "TIME";
@@ -32,6 +33,7 @@ public class SeriesTable {
         return "CREATE TABLE " + TABLE_NAME + "("
                 + ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + EXERCISE_NAME + " STRING, "
+                + COLOR_ID_COL + " INT, "
                 + WEIGHT_COL +" DOUBLE, "
                 + REPS_COL + " INTEGER,"
                 + DATE_COL + " LONG,"
@@ -45,6 +47,7 @@ public class SeriesTable {
 
         ContentValues contentValues = new ContentValues();
         contentValues.put(SeriesTable.EXERCISE_NAME, se.getExercisesName());
+        contentValues.put(SeriesTable.COLOR_ID_COL, se.getColorID());
         contentValues.put(SeriesTable.WEIGHT_COL, se.getWeight());
         contentValues.put(SeriesTable.REPS_COL, se.getRepetitions());
         contentValues.put(SeriesTable.EXERCISE_ID_COL, se.getExerciseId());
@@ -74,13 +77,14 @@ public class SeriesTable {
             int id = cursor.getInt(cursor.getColumnIndex(ID_COL));
 
             String name = cursor.getString(cursor.getColumnIndex(EXERCISE_NAME));
+            int colorid = cursor.getInt(cursor.getColumnIndex(COLOR_ID_COL));
             double weight =  cursor.getDouble(cursor.getColumnIndex(WEIGHT_COL));
             int reps = cursor.getInt(cursor.getColumnIndex(REPS_COL));
             long date = cursor.getLong(cursor.getColumnIndex(DATE_COL));
             int eid = cursor.getInt(cursor.getColumnIndex(EXERCISE_ID_COL));
             String time2= cursor.getString(cursor.getColumnIndex(TIME_COL));
 
-            Series s = new Series(id,weight, reps, new Date(date), eid,name,  new Date(time2));
+            Series s = new Series(id,weight, reps, new Date(date), eid,name,  new Date(time2),colorid);
             result.add(s);
         }
         DatabaseManager.getInstance().closeDatabase();
@@ -98,6 +102,7 @@ public class SeriesTable {
 
         while(cursor.moveToNext()) {
             int id = cursor.getInt(cursor.getColumnIndex(ID_COL));
+            int colorid = cursor.getInt(cursor.getColumnIndex(COLOR_ID_COL));
 
             String name = cursor.getString(cursor.getColumnIndex(EXERCISE_NAME));
             double weight =  cursor.getDouble(cursor.getColumnIndex(WEIGHT_COL));
@@ -106,7 +111,7 @@ public class SeriesTable {
             int eid = cursor.getInt(cursor.getColumnIndex(EXERCISE_ID_COL));
             long time2 = cursor.getLong(cursor.getColumnIndex(TIME_COL));
 
-            Series s = new Series(id,weight, reps, new Date(date), eid,name ,new Date(time2));
+            Series s = new Series(id,weight, reps, new Date(date), eid,name ,new Date(time2),colorid);
             result.add(s);
         }
         DatabaseManager.getInstance().closeDatabase();
