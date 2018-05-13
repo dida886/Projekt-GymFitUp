@@ -1,6 +1,7 @@
 package com.example.dmain.gymfit;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -31,6 +32,16 @@ public class my_result_popupActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_result_popup);
+
+        android.support.v7.widget.Toolbar mToolbar =findViewById(R.id.tool_bar);
+        mToolbar.setNavigationIcon(R.drawable.ic_arrow_back);
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),MyResult_Activity.class));
+                finish();
+            }
+        });
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getRealMetrics(dm);

@@ -147,6 +147,17 @@ public class HistoryActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
+                android.support.v7.widget.Toolbar mToolbar =myDialog.findViewById(R.id.tool_bar);
+                mToolbar.setNavigationIcon(R.drawable.ic_arrow_back);
+                mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(getApplicationContext(),HistoryActivity.class));
+                        finish();
+                    }
+                });
+
+
                 Button repsplus, repsminus, weightplus, weightminus;
 
                 repsplus = findViewById(R.id.IncreaseReps);
@@ -237,6 +248,9 @@ public class HistoryActivity extends AppCompatActivity {
                             SeriesTable.insert(s);
                             editText.setText("");
                             editText2.setText("");
+                            Intent refresh = new Intent(getApplicationContext(), HistoryActivity.class);
+                            startActivity(refresh);//Start the same Activity
+                            finish(); //finish Activity.
 
 
                         } else {
