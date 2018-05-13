@@ -99,6 +99,8 @@ public class Series_ExercisesActivity extends AppCompatActivity {
 
                     editText.setText("");
                     editText2.setText("");
+
+
                 } else {
                     Toast.makeText(Series_ExercisesActivity.this, "You must put something in the text field!", Toast.LENGTH_LONG).show();
                 }

@@ -50,7 +50,10 @@
         <activity android:name=".Map2Activity" />
         <activity android:name=".StoperwatchActivity" />
         <activity android:name=".History_DetailsActivity" />
-        <activity android:name=".my_result_popupActivity" android:theme="@style/AppTheme.CustomTheme" android:windowSoftInputMode="adjustPan"></activity>
+        <activity
+            android:name=".my_result_popupActivity"
+            android:theme="@style/AppTheme.CustomTheme"
+            android:windowSoftInputMode="adjustPan" />
     </application>
 
 </manifest>

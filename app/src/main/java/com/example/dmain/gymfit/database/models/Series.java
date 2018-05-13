@@ -99,7 +99,7 @@ public class Series {
 
     public String getMyTime(){
 
-        SimpleDateFormat formatter = new SimpleDateFormat("HH-mm");
+        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
         return String.format(formatter.format(this.Date));
 
     }

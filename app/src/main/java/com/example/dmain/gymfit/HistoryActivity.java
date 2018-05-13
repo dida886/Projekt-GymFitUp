@@ -7,8 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -17,6 +17,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.example.dmain.gymfit.database.models.HistoryListAdapter;
 import com.example.dmain.gymfit.database.models.ListExercise;
@@ -27,11 +28,11 @@ import com.example.dmain.gymfit.database.tables.SeriesTable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 public class HistoryActivity extends AppCompatActivity {
 
-
+    double weight;
+    double reps;
     HistoryListAdapter mainAdapter;
     ListView mListView;
 
@@ -43,6 +44,7 @@ public class HistoryActivity extends AppCompatActivity {
 
 
     int day, month, year;
+    private Toolbar toolbar;
 
 
     @Override
@@ -50,23 +52,26 @@ public class HistoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.history_activity);
 
-        int[] Icon = {R.drawable.weight,
+
+        android.support.v7.widget.Toolbar mToolbar =findViewById(R.id.tool_bar);
+        mToolbar.setNavigationIcon(R.drawable.ic_arrow_back);
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                finish();
+            }
+        });
+
+
+
+
+
+
+
+
+        final int[] Icon = {R.drawable.weight,
                 R.drawable.hantle};
-        int[]Colors = {
-                R.color.red,
-                R.color.green,
-                R.color.blue,
-                R.color.sblue,
-                R.color.orange,
-                R.color.yelow,
-                R.color.muj,
-        };
-
-        int nextImageIndex=0;
-
-
-
-
 
 
         myDialog = new Dialog(this);
@@ -84,7 +89,7 @@ public class HistoryActivity extends AppCompatActivity {
 
         month = month + 1;
 
-        textCalendar.setText(day + "/" + month + "/" + year);
+        textCalendar.setText(day + "." + month + "." + year);
 
 
         textCalendar.setOnClickListener(new View.OnClickListener() {
@@ -94,7 +99,7 @@ public class HistoryActivity extends AppCompatActivity {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfWeek) {
                         month = month + 1;
-                        textCalendar.setText(dayOfWeek + "/" + month + "/" + year);
+                        textCalendar.setText(dayOfWeek + "." + month + "." + year);
                     }
                 }, year, month, day);
                 datePickerDialog.show();
@@ -108,6 +113,7 @@ public class HistoryActivity extends AppCompatActivity {
         final ArrayList<Series> series = SeriesTable.getAll2();
         final ArrayList<ListExercise> exercises = ExercisesTable.getAll();
         mainAdapter = new HistoryListAdapter(getApplicationContext(), series, exercises, Icon);
+        mainAdapter.notifyDataSetChanged();
 
         if (series.size() == 0) {
             Toast.makeText(this, "There are no contents in this list!", Toast.LENGTH_LONG).show();
@@ -115,6 +121,7 @@ public class HistoryActivity extends AppCompatActivity {
 
         } else {
             mListView.setAdapter(mainAdapter);
+            mainAdapter.notifyDataSetChanged();
 
 
         }
@@ -140,18 +147,21 @@ public class HistoryActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                Button repsplus,repsminus,weightplus,weightminus;
+                Button repsplus, repsminus, weightplus, weightminus;
 
                 repsplus = findViewById(R.id.IncreaseReps);
-                repsminus =findViewById(R.id.DecreaseReps);
-                weightminus= findViewById(R.id.DecreaseWeight);
+                repsminus = findViewById(R.id.DecreaseReps);
+                weightminus = findViewById(R.id.DecreaseWeight);
                 weightplus = findViewById(R.id.IncreaseWeight);
 
 
                 Button btnAdd;
-                final EditText editText, editText2;
+
 
                 final ArrayAdapter adapter;
+
+
+                final EditText editText, editText2;
 
 
                 Intent intent1 = new Intent();
@@ -164,11 +174,24 @@ public class HistoryActivity extends AppCompatActivity {
                 btnAdd = myDialog.findViewById(R.id.btadd);
 
 
+                /*repsplus.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (weight > 1) {
+                            weight = weight - 0.5;
+                        }
+                        editText.setText((int) weight);
+
+
+                    }
+                });
+*/
+
                 //SPINER
                 final Spinner spinner = myDialog.findViewById(R.id.spinner);
 
                 final ArrayList<ListExercise> exercises = ExercisesTable.getAll();
-                ArrayList<String> theList = new ArrayList<>();
+                final ArrayList<String> theList = new ArrayList<>();
                 for (ListExercise e : exercises) theList.add(e.toString());
 
                 adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, theList);
@@ -176,8 +199,6 @@ public class HistoryActivity extends AppCompatActivity {
                 spinner.setAdapter(adapter);
 
                 spinner.setOnItemSelectedListener(new MyOnItemSelectedListener());
-
-
 
 
                 btnAdd.setOnClickListener(new View.OnClickListener() {
@@ -200,7 +221,6 @@ public class HistoryActivity extends AppCompatActivity {
                         Intent intent = new Intent(v.getContext(), HistoryActivity.class);
                         intent.putExtra("EXERCISE_ID", exercises.get(nPos).getId());
 
-
                         if (editText.length() != 0 && editText2.length() != 0) {
                             Series s = new Series(
                                     -1,
@@ -214,12 +234,7 @@ public class HistoryActivity extends AppCompatActivity {
 
 
                             );
-
                             SeriesTable.insert(s);
-                            mainAdapter.notifyDataSetChanged();
-                            mainAdapter.notifyDataSetChanged();
-
-
                             editText.setText("");
                             editText2.setText("");
 
@@ -227,11 +242,16 @@ public class HistoryActivity extends AppCompatActivity {
                         } else {
                             Toast.makeText(myDialog.getContext(), "You must put something in the text field!", Toast.LENGTH_LONG).show();
                         }
+
                     }
+
                 });
+
 
                 myDialog.show();
             }
         });
     }
+
+
 }

@@ -33,7 +33,7 @@ private CardView histcard, bmicard,addexcard, mapcard, myresult;
 
         histcard = (CardView) findViewById(R.id.histcardview);
         bmicard = (CardView)findViewById(R.id.bmicardview);
-        //addexcard = (CardView)findViewById(R.id.addcardview);
+        addexcard = (CardView)findViewById(R.id.addcardview);
         mapcard = findViewById(R.id.mapcardviev);
         myresult = findViewById(R.id.my_result_card);
 
@@ -41,7 +41,7 @@ private CardView histcard, bmicard,addexcard, mapcard, myresult;
 
         histcard.setOnClickListener(this);
         bmicard.setOnClickListener(this);
-        //addexcard.setOnClickListener(this);
+        addexcard.setOnClickListener(this);
         mapcard.setOnClickListener(this);
         myresult.setOnClickListener(this);
 
@@ -87,7 +87,7 @@ private CardView histcard, bmicard,addexcard, mapcard, myresult;
         switch (v.getId()) {
             case R.id.histcardview: i = new Intent(this, HistoryActivity.class);startActivity(i); break;
             case R.id.bmicardview: i = new Intent(this, Calculator_BMI_Activity.class);startActivity(i); break;
-            //case R.id.addcardview: i = new Intent(this, Add_Exercises_ListActivity.class);startActivity(i); break;
+            case R.id.addcardview: i = new Intent(this, StoperwatchActivity.class);startActivity(i); break;
             case R.id.mapcardviev: i = new Intent(this, Map2Activity.class);startActivity(i); break;
             case R.id.my_result_card: i = new Intent(this, MyResult_Activity.class);startActivity(i); break;
 

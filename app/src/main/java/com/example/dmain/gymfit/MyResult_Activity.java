@@ -24,6 +24,7 @@ import java.util.ArrayList;
 
 public class MyResult_Activity extends AppCompatActivity {
 
+
     int[] icon = {R.drawable.arm,
             R.drawable.forearm,
             R.drawable.chest,
@@ -43,6 +44,15 @@ public class MyResult_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_result_);
+        android.support.v7.widget.Toolbar mToolbar =findViewById(R.id.tool_bar);
+        mToolbar.setNavigationIcon(R.drawable.ic_arrow_back);
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                finish();
+            }
+        });
 
         fab = findViewById(R.id.fab);
 
