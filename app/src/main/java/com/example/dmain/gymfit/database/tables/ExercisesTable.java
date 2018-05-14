@@ -31,7 +31,7 @@ public class ExercisesTable {
     }
 
     public static void insertPredefinedData(){
-        ExercisesTable.insert(new ListExercise(1, "Podnoszenie Sztangi", R.color.sblue));
+        ExercisesTable.insert(new ListExercise(1, "Podnoszenie Sztangi", R.color.green));
         ExercisesTable.insert(new ListExercise(2, "Mięśnie łydek", R.color.red));
         ExercisesTable.insert(new ListExercise(3, "Mięśnie brzucha", R.color.blue));
     }

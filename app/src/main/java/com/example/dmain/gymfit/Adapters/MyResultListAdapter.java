@@ -1,4 +1,4 @@
-package com.example.dmain.gymfit.database.models;
+package com.example.dmain.gymfit.Adapters;
 
 import android.content.Context;
 import android.view.View;
@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.dmain.gymfit.R;
+import com.example.dmain.gymfit.database.models.BodyMeasure;
 
 import java.util.List;
 

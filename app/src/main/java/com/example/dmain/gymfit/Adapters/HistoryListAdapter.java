@@ -1,4 +1,4 @@
-package com.example.dmain.gymfit.database.models;
+package com.example.dmain.gymfit.Adapters;
 
 import android.content.Context;
 import android.graphics.drawable.Icon;
@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.dmain.gymfit.R;
+import com.example.dmain.gymfit.database.models.ListExercise;
+import com.example.dmain.gymfit.database.models.Series;
 
 import java.util.List;
 

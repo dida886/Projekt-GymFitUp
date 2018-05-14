@@ -6,8 +6,8 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -19,7 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
-import com.example.dmain.gymfit.database.models.HistoryListAdapter;
+import com.example.dmain.gymfit.Adapters.HistoryListAdapter;
 import com.example.dmain.gymfit.database.models.ListExercise;
 import com.example.dmain.gymfit.database.models.Series;
 import com.example.dmain.gymfit.database.tables.ExercisesTable;
@@ -31,8 +31,8 @@ import java.util.Date;
 
 public class HistoryActivity extends AppCompatActivity {
 
-    double weight;
-    double reps;
+    double weight = 1;
+    int reps = 1;
     HistoryListAdapter mainAdapter;
     ListView mListView;
 
@@ -157,13 +157,83 @@ public class HistoryActivity extends AppCompatActivity {
                     }
                 });
 
+                final TextView txtweight, txtreps;
+                txtweight = myDialog.findViewById(R.id.txtinput);
+                txtreps = myDialog.findViewById(R.id.txtinput2);
 
-                Button repsplus, repsminus, weightplus, weightminus;
 
-                repsplus = findViewById(R.id.IncreaseReps);
-                repsminus = findViewById(R.id.DecreaseReps);
-                weightminus = findViewById(R.id.DecreaseWeight);
-                weightplus = findViewById(R.id.IncreaseWeight);
+                final Button repsplus, repsminus, weightplus, weightminus;
+
+                repsplus = myDialog.findViewById(R.id.IncreaseReps);
+                repsminus = myDialog.findViewById(R.id.DecreaseReps);
+                weightminus = myDialog.findViewById(R.id.DecreaseWeight);
+                weightplus = myDialog.findViewById(R.id.IncreaseWeight);
+
+                repsplus.setOnClickListener(new View.OnClickListener() {
+
+
+                    public int getReps() {
+                        reps= reps+1;
+                        return reps;
+                    }
+                    @Override
+                    public void onClick(View v) {
+
+                        txtreps.setText(""+ getReps());
+
+                    }
+                });
+                repsminus.setOnClickListener(new View.OnClickListener() {
+
+
+
+                    public int getNumber() {
+                        if (reps > 1) {
+                            reps = reps - 1;
+                        }
+                        return reps;
+                    }
+                    @Override
+                    public void onClick(View v) {
+                        txtreps.setText(""+getNumber());
+
+                    }
+                });
+                weightminus.setOnClickListener(new View.OnClickListener() {
+
+
+
+                    public double getNumber() {
+                        if (weight > 1) {
+                            weight = weight - 0.5;
+                        }
+                        return weight;
+                    }
+                    @Override
+                    public void onClick(View v) {
+                        txtweight.setText(""+getNumber());
+
+                    }
+                });
+                weightplus.setOnClickListener(new View.OnClickListener() {
+
+
+
+                    public double getNumber() {
+                        weight= weight+0.5;
+                        return weight;
+                    }
+                    @Override
+                    public void onClick(View v) {
+                        txtweight.setText(""+getNumber());
+
+
+                    }
+                });
+
+
+
+
 
 
                 Button btnAdd;
@@ -262,10 +332,13 @@ public class HistoryActivity extends AppCompatActivity {
                 });
 
 
+
+
                 myDialog.show();
             }
         });
     }
+
 
 
 }

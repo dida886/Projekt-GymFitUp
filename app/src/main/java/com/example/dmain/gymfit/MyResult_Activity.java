@@ -8,17 +8,13 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.dmain.gymfit.database.models.BodyMeasure;
-import com.example.dmain.gymfit.database.models.HistoryListAdapter;
-import com.example.dmain.gymfit.database.models.MyResultListAdapter;
-import com.example.dmain.gymfit.database.models.Series;
+import com.example.dmain.gymfit.Adapters.MyResultListAdapter;
 import com.example.dmain.gymfit.database.tables.BodyMeasuresTable;
-import com.example.dmain.gymfit.database.tables.SeriesTable;
 
 import java.util.ArrayList;
 
@@ -74,6 +70,7 @@ public class MyResult_Activity extends AppCompatActivity {
             public void onClick(View view) {
 
                 startActivity(new Intent(MyResult_Activity.this,my_result_popupActivity.class));
+
 
             }
         });

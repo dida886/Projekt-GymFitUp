@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".my_result_popupActivity">
+    tools:context=".my_result_popupActivity"
+    >
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -145,8 +146,10 @@
         android:id="@+id/tv_thigh"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_alignBaseline="@+id/tv_unit_cm_"
-        android:layout_alignStart="@+id/tv_calf"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/tv_unit_cm_"
+        android:layout_marginEnd="120dp"
+        android:layout_marginStart="30dp"
         android:text="udo"
         android:textSize="25dp" />
 
@@ -163,8 +166,10 @@
         android:id="@+id/tv_calf"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_alignBaseline="@+id/tv_unit_cm_5"
-        android:layout_alignStart="@+id/tv_forearm2"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tv_unit_cm_"
+        android:layout_marginEnd="130dp"
+        android:layout_marginStart="30dp"
         android:text="łydka"
         android:textSize="25dp" />
 
@@ -181,9 +186,10 @@
         android:id="@+id/tv_forearm2"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_alignBaseline="@+id/tv_unit_cm_2"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="62dp"
+        android:layout_alignTop="@+id/tv_unit_cm_2"
+        android:layout_marginEnd="140dp"
+        android:layout_marginStart="30dp"
         android:text="przedramię"
         android:textSize="25dp" />
 
@@ -191,8 +197,8 @@
         android:id="@+id/tv_arm2"
         android:layout_width="70dp"
         android:layout_height="40dp"
+        android:layout_above="@+id/tv_unit_cm_"
         android:layout_alignStart="@+id/tv_chest"
-        android:layout_alignTop="@+id/tv_unit_cm_4"
         android:text="ramię"
         android:textSize="25dp" />
 </RelativeLayout>

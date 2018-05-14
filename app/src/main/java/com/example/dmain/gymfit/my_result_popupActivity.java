@@ -49,7 +49,8 @@ public class my_result_popupActivity extends Activity {
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int)(width*.85),(int)(height*.7));
+
+        getWindow().setLayout((int)(width*.85),(int)(height*.75));
 
         editarm = findViewById(R.id.et_arm2);
         editforearm = findViewById(R.id.et_forearm2);
