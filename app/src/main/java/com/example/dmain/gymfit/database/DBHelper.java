@@ -10,7 +10,7 @@ import com.example.dmain.gymfit.database.tables.ExercisesTable;
 import com.example.dmain.gymfit.database.tables.SeriesTable;
 
 public class DBHelper  extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 48;
+    private static final int DATABASE_VERSION = 55;
     private static final String DATABASE_NAME = "GYMFIT2.db";
     private static final String TAG = DBHelper.class.getSimpleName();
 

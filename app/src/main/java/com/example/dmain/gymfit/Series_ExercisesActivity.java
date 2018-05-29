@@ -57,7 +57,7 @@ public class Series_ExercisesActivity extends AppCompatActivity {
         listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, theList);
         listView.setAdapter(listAdapter);
 
-        ArrayList<Series> series = SeriesTable.getAll(exercise_id);
+        ArrayList<Series> series = SeriesTable.getAll2();
 
         if (series.size() == 0) {
             Toast.makeText(this, "There are no contents in this list!", Toast.LENGTH_LONG).show();
@@ -84,7 +84,7 @@ public class Series_ExercisesActivity extends AppCompatActivity {
                             -1,
                             Double.parseDouble(newEntry),
                             Integer.parseInt(newEntry2),
-                            new Date(),
+                            color,
                             exercise_id,
                             newEntry,
                             new Date(),

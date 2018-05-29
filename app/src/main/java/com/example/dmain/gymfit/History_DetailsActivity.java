@@ -28,7 +28,7 @@ public class History_DetailsActivity extends AppCompatActivity {
 
         Toast.makeText(this, "EX ID " + Integer.toString(exerciseId), Toast.LENGTH_LONG).show();
 
-        final ArrayList<Series> series = SeriesTable.getAll(exerciseId);
+        final ArrayList<Series> series = SeriesTable.getAll2();
 
         if (series.size() == 0) {
             Toast.makeText(this, "There are no contents in this list!", Toast.LENGTH_LONG).show();

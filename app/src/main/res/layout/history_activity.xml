@@ -47,17 +47,21 @@
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/btnADD"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="100dp"
+        android:layout_height="133dp"
+
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="14dp"
         android:layout_marginEnd="14dp"
-
-        android:background="@drawable/addbutton"
         android:backgroundTintMode="src_in"
-        app:backgroundTint="@android:color/holo_red_dark"
-        app:fabSize="normal" /> />
+        android:scaleType="center"
+
+        android:src="@drawable/addbutton"
+        app:backgroundTint="@android:color/transparent"
+
+        app:fabSize="normal" />
+
 
 </RelativeLayout>
 

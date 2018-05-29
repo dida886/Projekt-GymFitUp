@@ -37,9 +37,9 @@ public class StoperwatchActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_stoperwatch);
+        setContentView(R.layout.stopwatch);
 
-        android.support.v7.widget.Toolbar mToolbar =findViewById(R.id.tool_bar);
+        android.support.v7.widget.Toolbar mToolbar =findViewById(R.id.stopertoolbar);
         mToolbar.setNavigationIcon(R.drawable.ic_arrow_back);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +54,7 @@ public class StoperwatchActivity extends AppCompatActivity {
         start = (Button) findViewById (R.id.button);
         pause = (Button) findViewById (R.id.button2);
         reset = (Button) findViewById (R.id.button3);
-        lap = (Button) findViewById (R.id.button4) ;
+        //lap = (Button) findViewById (R.id.button4) ;
         listView = (ListView) findViewById (R.id.listview1);
 
         handler = new Handler() ;
@@ -113,16 +113,7 @@ public class StoperwatchActivity extends AppCompatActivity {
             }
         });
 
-        lap.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                ListElementsArrayList.add(textView.getText().toString());
-
-                adapter.notifyDataSetChanged();
-
-            }
-        });
 
     }
 

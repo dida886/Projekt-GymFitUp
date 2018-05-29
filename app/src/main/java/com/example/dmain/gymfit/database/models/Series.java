@@ -12,14 +12,14 @@ public class Series {
     private int Id;
     private double Weight;
     private int Repetitions;
-    private Date Date;
+    private long Date;
     private String ExercisesName;
     private Date Time2;
     private int ColorID;
 
     private int ExerciseId;
 
-    public Series(int id, double weight, int reptitions, Date date, int exerciseId, String exercisesName, Date time, int colorID) {
+    public Series(int id, double weight, int reptitions, long date, int exerciseId, String exercisesName, Date time, int colorID) {
 
 
 
@@ -64,11 +64,11 @@ public class Series {
         Repetitions = repetitions;
     }
 
-    public Date getDate() {
+    public long getDate() {
         return Date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(long date) {
         Date = date;
     }
 
@@ -95,6 +95,14 @@ public class Series {
     public void setTime2(Date time) {
         Time2 = time;
     }
+
+    public String getMyDate(){
+
+        SimpleDateFormat formatter = new SimpleDateFormat("ddMMyyyy");
+        return String.format(formatter.format(this.Date));
+
+    }
+
 
 
     public String getMyTime(){

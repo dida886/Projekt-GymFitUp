@@ -51,20 +51,20 @@ public class SeriesTable {
         contentValues.put(SeriesTable.WEIGHT_COL, se.getWeight());
         contentValues.put(SeriesTable.REPS_COL, se.getRepetitions());
         contentValues.put(SeriesTable.EXERCISE_ID_COL, se.getExerciseId());
-        contentValues.put(SeriesTable.DATE_COL, se.getDate().getTime());
-        contentValues.put(SeriesTable.TIME_COL, se.getDate().getTime());
+        contentValues.put(SeriesTable.DATE_COL, se.getDate());
+        contentValues.put(SeriesTable.TIME_COL, se.getDate());
 
         int result = (int)db.insert(TABLE_NAME, null, contentValues);
         DatabaseManager.getInstance().closeDatabase();
 
         return result;
     }
-    public static ArrayList<Series> getAll(int exerciseId){
+    public static ArrayList<Series> getAll(int newDate){
         SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
 
         Cursor cursor = db.rawQuery(
-                "SELECT * FROM " + TABLE_NAME + " WHERE " + EXERCISE_ID_COL + " = ?",
-                new String[] {Integer.toString(exerciseId)}
+                "SELECT * FROM " + TABLE_NAME + " WHERE " + DATE_COL + " = ?",
+                new String[] {Integer.toString(newDate)}
         );
 
         ArrayList<Series> result = new ArrayList<>();
@@ -84,7 +84,7 @@ public class SeriesTable {
             int eid = cursor.getInt(cursor.getColumnIndex(EXERCISE_ID_COL));
             String time2= cursor.getString(cursor.getColumnIndex(TIME_COL));
 
-            Series s = new Series(id,weight, reps, new Date(date), eid,name,  new Date(time2),colorid);
+            Series s = new Series(id,weight, reps, date, eid,name,  new Date(time2),colorid);
             result.add(s);
         }
         DatabaseManager.getInstance().closeDatabase();
@@ -111,11 +111,13 @@ public class SeriesTable {
             int eid = cursor.getInt(cursor.getColumnIndex(EXERCISE_ID_COL));
             long time2 = cursor.getLong(cursor.getColumnIndex(TIME_COL));
 
-            Series s = new Series(id,weight, reps, new Date(date), eid,name ,new Date(time2),colorid);
+            Series s = new Series(id,weight, reps, date, eid,name ,new Date(time2),colorid);
             result.add(s);
         }
         DatabaseManager.getInstance().closeDatabase();
         return result;
     }
+
+
     }
 

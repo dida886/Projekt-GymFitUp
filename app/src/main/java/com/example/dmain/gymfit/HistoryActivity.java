@@ -6,7 +6,6 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -25,6 +24,7 @@ import com.example.dmain.gymfit.database.models.Series;
 import com.example.dmain.gymfit.database.tables.ExercisesTable;
 import com.example.dmain.gymfit.database.tables.SeriesTable;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -35,6 +35,7 @@ public class HistoryActivity extends AppCompatActivity {
     int reps = 1;
     HistoryListAdapter mainAdapter;
     ListView mListView;
+    Series s;
 
 
     TextView textCalendar;
@@ -44,7 +45,9 @@ public class HistoryActivity extends AppCompatActivity {
 
 
     int day, month, year;
+    int milis;
     private Toolbar toolbar;
+    private int dam;
 
 
     @Override
@@ -53,22 +56,18 @@ public class HistoryActivity extends AppCompatActivity {
         setContentView(R.layout.history_activity);
 
 
-        android.support.v7.widget.Toolbar mToolbar =findViewById(R.id.tool_bar);
+        android.support.v7.widget.Toolbar mToolbar = findViewById(R.id.tool_bar);
         mToolbar.setNavigationIcon(R.drawable.ic_arrow_back);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 finish();
             }
         });
 
 
-
-
-
-
-
+        mListView = findViewById(R.id.datelist);
 
         final int[] Icon = {R.drawable.weight,
                 R.drawable.hantle};
@@ -86,8 +85,13 @@ public class HistoryActivity extends AppCompatActivity {
         day = calendar.get(Calendar.DAY_OF_MONTH);
         month = calendar.get(Calendar.MONTH);
         year = calendar.get(Calendar.YEAR);
-
         month = month + 1;
+
+        String m;
+        m = day + "" + month + "" + year;
+
+        dam = Integer.parseInt(m);
+
 
         textCalendar.setText(day + "." + month + "." + year);
 
@@ -103,12 +107,10 @@ public class HistoryActivity extends AppCompatActivity {
                     }
                 }, year, month, day);
                 datePickerDialog.show();
+
+
             }
         });
-
-
-        mListView = findViewById(R.id.datelist);
-
 
         final ArrayList<Series> series = SeriesTable.getAll2();
         final ArrayList<ListExercise> exercises = ExercisesTable.getAll();
@@ -125,6 +127,14 @@ public class HistoryActivity extends AppCompatActivity {
 
 
         }
+
+
+
+
+
+
+
+
 
 
 
@@ -147,12 +157,12 @@ public class HistoryActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                android.support.v7.widget.Toolbar mToolbar =myDialog.findViewById(R.id.tool_bar);
+                android.support.v7.widget.Toolbar mToolbar = myDialog.findViewById(R.id.tool_bar);
                 mToolbar.setNavigationIcon(R.drawable.ic_arrow_back);
                 mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startActivity(new Intent(getApplicationContext(),HistoryActivity.class));
+                        startActivity(new Intent(getApplicationContext(), HistoryActivity.class));
                         finish();
                     }
                 });
@@ -173,18 +183,18 @@ public class HistoryActivity extends AppCompatActivity {
 
 
                     public int getReps() {
-                        reps= reps+1;
+                        reps = reps + 1;
                         return reps;
                     }
+
                     @Override
                     public void onClick(View v) {
 
-                        txtreps.setText(""+ getReps());
+                        txtreps.setText("" + getReps());
 
                     }
                 });
                 repsminus.setOnClickListener(new View.OnClickListener() {
-
 
 
                     public int getNumber() {
@@ -193,14 +203,14 @@ public class HistoryActivity extends AppCompatActivity {
                         }
                         return reps;
                     }
+
                     @Override
                     public void onClick(View v) {
-                        txtreps.setText(""+getNumber());
+                        txtreps.setText("" + getNumber());
 
                     }
                 });
                 weightminus.setOnClickListener(new View.OnClickListener() {
-
 
 
                     public double getNumber() {
@@ -209,31 +219,28 @@ public class HistoryActivity extends AppCompatActivity {
                         }
                         return weight;
                     }
+
                     @Override
                     public void onClick(View v) {
-                        txtweight.setText(""+getNumber());
+                        txtweight.setText("" + getNumber());
 
                     }
                 });
                 weightplus.setOnClickListener(new View.OnClickListener() {
 
 
-
                     public double getNumber() {
-                        weight= weight+0.5;
+                        weight = weight + 0.5;
                         return weight;
                     }
+
                     @Override
                     public void onClick(View v) {
-                        txtweight.setText(""+getNumber());
+                        txtweight.setText("" + getNumber());
 
 
                     }
                 });
-
-
-
-
 
 
                 Button btnAdd;
@@ -302,12 +309,17 @@ public class HistoryActivity extends AppCompatActivity {
                         Intent intent = new Intent(v.getContext(), HistoryActivity.class);
                         intent.putExtra("EXERCISE_ID", exercises.get(nPos).getId());
 
+                        Date date = new Date();
+                        SimpleDateFormat formatter = new SimpleDateFormat("ddMyyyy");
+                        String mydate = formatter.format(date);
+
+
                         if (editText.length() != 0 && editText2.length() != 0) {
                             Series s = new Series(
                                     -1,
                                     Double.parseDouble(newEntry),
                                     Integer.parseInt(newEntry2),
-                                    new Date(),
+                                    Integer.parseInt(mydate),
                                     exercise_id,
                                     spinnerString,
                                     new Date(),
@@ -332,13 +344,10 @@ public class HistoryActivity extends AppCompatActivity {
                 });
 
 
-
-
                 myDialog.show();
             }
         });
     }
-
 
 
 }

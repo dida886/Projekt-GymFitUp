@@ -73,7 +73,7 @@ public class my_result_popupActivity extends Activity {
     private void viewItemsInList (ArrayList < BodyMeasure > measures) {
         theList.clear();
         if (measures.size() == 0) {
-            showMessage("Informacja", "Brak jakichkolwiek pomiarów w bazie");
+            //showMessage("Informacja", "Brak jakichkolwiek pomiarów w bazie");
             return;
         }
 
