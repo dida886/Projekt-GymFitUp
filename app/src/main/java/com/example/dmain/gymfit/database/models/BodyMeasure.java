@@ -33,6 +33,10 @@ public class BodyMeasure {
         return Id;
     }
 
+    public void setId(int id) {
+        Id = id;
+    }
+
     public double getArm() {
         return Arm;
     }

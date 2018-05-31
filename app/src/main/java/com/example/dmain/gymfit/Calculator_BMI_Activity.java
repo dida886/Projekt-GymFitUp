@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import static com.example.dmain.gymfit.App.getContext;
 
 public class Calculator_BMI_Activity extends AppCompatActivity {
     private EditText editText_weight;
@@ -38,6 +41,8 @@ public class Calculator_BMI_Activity extends AppCompatActivity {
         editText2_height = (EditText) findViewById(R.id.editText2_height);
         result = (TextView) findViewById(R.id.result_bmi);
         Button button = (Button) findViewById(R.id.button);
+        final TextView displayFloat = (TextView) findViewById(R.id.result_bmi);
+        final TextView bmi_advice =(TextView) findViewById(R.id.tv_bmi_advice);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,45 +51,57 @@ public class Calculator_BMI_Activity extends AppCompatActivity {
                 String stringWeight = editText_weight.getText().toString();
                 String stringHeight = editText2_height.getText().toString();
 
-                floatWeight  = Float.parseFloat(stringWeight);
+                floatWeight = Float.parseFloat(stringWeight);
                 floatHeight = Float.parseFloat(stringHeight);
                 floatHeight = floatHeight / 100;
 
-                bmi=(floatWeight/(floatHeight*floatHeight));
-                TextView bmi_advice =(TextView) findViewById(R.id.tv_bmi_advice);
-                if(bmi<18.5)
-                {
-
-                    TextView bmi_description =(TextView) findViewById(R.id.bmi_description);
-                    bmi_description.setTextColor(0xff0000ff);
-                    bmi_description.setText("Masz niedowagę");
-                    bmi_advice.setText("Powinieneś przytyć");
-
-
-
-                }
-                else if(bmi>18.5 && bmi<24.99)
-                {
-                    TextView bmi_description =(TextView) findViewById(R.id.bmi_description);
-                    bmi_description.setTextColor(0xff00ff00);
-                    bmi_description.setText("Waga prawidłowa");
-
-
-                }
-                else if(bmi>24.99)
-                {
-                    TextView bmi_description =(TextView) findViewById(R.id.bmi_description);
-                    bmi_description.setTextColor(0xffff0000);
-                    bmi_description.setText("Masz nadwagę");
-                    bmi_advice.setText("Powinieneś schudnąć");
-                }
-
+                bmi = (floatWeight / (floatHeight * floatHeight));
 
                 String s = Float.toString(bmi);
 
-                TextView displayFloat = (TextView) findViewById(
-                        R.id.result_bmi);
-                displayFloat.setText(s);
+                if (editText2_height.length() != 0&&  editText_weight.length()!= 0)
+                {
+
+                }
+
+                else  {
+
+                    Toast.makeText(getContext(), "Wszystkie pola muszą być wypełnione", Toast.LENGTH_LONG).show();
+                }
+
+
+
+
+                if (bmi < 18.5) {
+
+                    TextView bmi_description = (TextView) findViewById(R.id.bmi_description);
+                    bmi_description.setTextColor(0xff0000ff);
+                    bmi_description.setText("Masz niedowagę");
+                    bmi_advice.setText("Powinieneś przytyć");
+                    displayFloat.setText(s);
+
+
+                } else if (bmi > 18.5 && bmi < 24.99) {
+                    TextView bmi_description = (TextView) findViewById(R.id.bmi_description);
+                    bmi_description.setTextColor(0xff00ff00);
+                    bmi_description.setText("Waga prawidłowa");
+                    bmi_advice.setText("Gratulacje!");
+                    displayFloat.setText(s);
+
+
+                } else if (bmi > 24.99) {
+                    TextView bmi_description = (TextView) findViewById(R.id.bmi_description);
+                    bmi_description.setTextColor(0xffff0000);
+                    bmi_description.setText("Masz nadwagę");
+                    bmi_advice.setText("Powinieneś schudnąć");
+                    displayFloat.setText(s);
+                }
+
+
+
+
+
+
 
 
 

@@ -14,7 +14,7 @@ public class BodyMeasuresTable {
 
     public static final String TABLE_NAME = "BODY_MEASURES";
 
-    private static final String ID_COL = "ID";
+    public static final String ID_COL = "ID";
     private static final String ARM_COL = "ARM";
     private static final String FOREARM_COL = "FOREARM";
     private static final String CHEST_COL = "CHEST";
@@ -84,4 +84,20 @@ public class BodyMeasuresTable {
         return result;
 
     }
+    public static int deleteItem(int position){
+        SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
+        Cursor cursor = db.rawQuery("DELETE FROM " + TABLE_NAME + " WHERE " + ID_COL + " = " + position, null);
+
+        cursor.close();
+        DatabaseManager.getInstance().closeDatabase();
+        return position;
+
+
+
+    }
+
+
+
+
+
 }

@@ -28,8 +28,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Series_ExercisesActivity" />
-        <activity android:name=".Add_Exercises_ListActivity" />
         <activity android:name=".Calculator_BMI_Activity" />
         <activity android:name=".HistoryActivity" />
         <!--
@@ -44,17 +42,9 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity
-            android:name=".MapActivity"
-            android:label="@string/title_activity_maps" />
         <activity android:name=".MyResult_Activity" />
         <activity android:name=".Map2Activity" />
         <activity android:name=".StoperwatchActivity" />
-        <activity android:name=".History_DetailsActivity" />
-        <activity
-            android:name=".my_result_popupActivity"
-            android:theme="@style/AppTheme.CustomTheme"
-            android:windowSoftInputMode="adjustPan" />
     </application>
 
 </manifest>

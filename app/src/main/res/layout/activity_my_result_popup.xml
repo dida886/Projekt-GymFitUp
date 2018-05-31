@@ -77,6 +77,15 @@
         android:textSize="29dp" />
 
     <EditText
+        android:id="@+id/et_waist2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/tv_unit_cm_3"
+        android:layout_toStartOf="@+id/tv_unit_cm_"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <EditText
         android:id="@+id/et_arm2"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -100,15 +109,6 @@
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="168dp"
-        android:layout_toStartOf="@+id/tv_unit_cm_"
-        android:ems="10"
-        android:inputType="numberDecimal" />
-
-    <EditText
-        android:id="@+id/et_waist2"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignBottom="@+id/tv_unit_cm_3"
         android:layout_toStartOf="@+id/tv_unit_cm_"
         android:ems="10"
         android:inputType="numberDecimal" />

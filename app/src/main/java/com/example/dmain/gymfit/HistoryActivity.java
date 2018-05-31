@@ -123,10 +123,32 @@ public class HistoryActivity extends AppCompatActivity {
 
         } else {
             mListView.setAdapter(mainAdapter);
-            mainAdapter.notifyDataSetChanged();
+            SwipeDismissListViewTouchListener touchListener =
+                    new SwipeDismissListViewTouchListener(
+                            mListView,
+                            new SwipeDismissListViewTouchListener.DismissCallbacks() {
+                                @Override
+                                public boolean canDismiss(int position) {
+                                    return true;
+                                }
+
+                                @Override
+                                public void onDismiss(ListView listView, int[] reverseSortedPositions) {
+                                    for (int position : reverseSortedPositions) {
+
+                                        series.remove(position);
+                                        mainAdapter.notifyDataSetChanged();
+
+                                    }
+
+                                }
+                            });
+            mListView.setOnTouchListener(touchListener);
 
 
-        }
+
+
+
 
 
 
@@ -151,115 +173,115 @@ public class HistoryActivity extends AppCompatActivity {
         }*/
 
 
-        addbtn.setOnClickListener(new View.OnClickListener() {
+            addbtn.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-
-
-                android.support.v7.widget.Toolbar mToolbar = myDialog.findViewById(R.id.tool_bar);
-                mToolbar.setNavigationIcon(R.drawable.ic_arrow_back);
-                mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        startActivity(new Intent(getApplicationContext(), HistoryActivity.class));
-                        finish();
-                    }
-                });
-
-                final TextView txtweight, txtreps;
-                txtweight = myDialog.findViewById(R.id.txtinput);
-                txtreps = myDialog.findViewById(R.id.txtinput2);
+                @Override
+                public void onClick(View v) {
 
 
-                final Button repsplus, repsminus, weightplus, weightminus;
-
-                repsplus = myDialog.findViewById(R.id.IncreaseReps);
-                repsminus = myDialog.findViewById(R.id.DecreaseReps);
-                weightminus = myDialog.findViewById(R.id.DecreaseWeight);
-                weightplus = myDialog.findViewById(R.id.IncreaseWeight);
-
-                repsplus.setOnClickListener(new View.OnClickListener() {
-
-
-                    public int getReps() {
-                        reps = reps + 1;
-                        return reps;
-                    }
-
-                    @Override
-                    public void onClick(View v) {
-
-                        txtreps.setText("" + getReps());
-
-                    }
-                });
-                repsminus.setOnClickListener(new View.OnClickListener() {
-
-
-                    public int getNumber() {
-                        if (reps > 1) {
-                            reps = reps - 1;
+                    android.support.v7.widget.Toolbar mToolbar = myDialog.findViewById(R.id.tool_bar);
+                    mToolbar.setNavigationIcon(R.drawable.ic_arrow_back);
+                    mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            startActivity(new Intent(getApplicationContext(), HistoryActivity.class));
+                            finish();
                         }
-                        return reps;
-                    }
+                    });
 
-                    @Override
-                    public void onClick(View v) {
-                        txtreps.setText("" + getNumber());
-
-                    }
-                });
-                weightminus.setOnClickListener(new View.OnClickListener() {
+                    final TextView txtweight, txtreps;
+                    txtweight = myDialog.findViewById(R.id.txtinput);
+                    txtreps = myDialog.findViewById(R.id.txtinput2);
 
 
-                    public double getNumber() {
-                        if (weight > 1) {
-                            weight = weight - 0.5;
+                    final Button repsplus, repsminus, weightplus, weightminus;
+
+                    repsplus = myDialog.findViewById(R.id.IncreaseReps);
+                    repsminus = myDialog.findViewById(R.id.DecreaseReps);
+                    weightminus = myDialog.findViewById(R.id.DecreaseWeight);
+                    weightplus = myDialog.findViewById(R.id.IncreaseWeight);
+
+                    repsplus.setOnClickListener(new View.OnClickListener() {
+
+
+                        public int getReps() {
+                            reps = reps + 1;
+                            return reps;
                         }
-                        return weight;
-                    }
 
-                    @Override
-                    public void onClick(View v) {
-                        txtweight.setText("" + getNumber());
+                        @Override
+                        public void onClick(View v) {
 
-                    }
-                });
-                weightplus.setOnClickListener(new View.OnClickListener() {
+                            txtreps.setText("" + getReps());
 
-
-                    public double getNumber() {
-                        weight = weight + 0.5;
-                        return weight;
-                    }
-
-                    @Override
-                    public void onClick(View v) {
-                        txtweight.setText("" + getNumber());
+                        }
+                    });
+                    repsminus.setOnClickListener(new View.OnClickListener() {
 
 
-                    }
-                });
+                        public int getNumber() {
+                            if (reps > 1) {
+                                reps = reps - 1;
+                            }
+                            return reps;
+                        }
+
+                        @Override
+                        public void onClick(View v) {
+                            txtreps.setText("" + getNumber());
+
+                        }
+                    });
+                    weightminus.setOnClickListener(new View.OnClickListener() {
 
 
-                Button btnAdd;
+                        public double getNumber() {
+                            if (weight > 1) {
+                                weight = weight - 0.5;
+                            }
+                            return weight;
+                        }
+
+                        @Override
+                        public void onClick(View v) {
+                            txtweight.setText("" + getNumber());
+
+                        }
+                    });
+                    weightplus.setOnClickListener(new View.OnClickListener() {
 
 
-                final ArrayAdapter adapter;
+                        public double getNumber() {
+                            weight = weight + 0.5;
+                            return weight;
+                        }
+
+                        @Override
+                        public void onClick(View v) {
+                            txtweight.setText("" + getNumber());
 
 
-                final EditText editText, editText2;
+                        }
+                    });
 
 
-                Intent intent1 = new Intent();
-
-                final int exercise_id = intent1.getIntExtra("EXERCISE_ID", -1);
+                    Button btnAdd;
 
 
-                editText = myDialog.findViewById(R.id.txtinput);
-                editText2 = myDialog.findViewById(R.id.txtinput2);
-                btnAdd = myDialog.findViewById(R.id.btadd);
+                    final ArrayAdapter adapter;
+
+
+                    final EditText editText, editText2;
+
+
+                    Intent intent1 = new Intent();
+
+                    final int exercise_id = intent1.getIntExtra("EXERCISE_ID", -1);
+
+
+                    editText = myDialog.findViewById(R.id.txtinput);
+                    editText2 = myDialog.findViewById(R.id.txtinput2);
+                    btnAdd = myDialog.findViewById(R.id.btadd);
 
 
                 /*repsplus.setOnClickListener(new View.OnClickListener() {
@@ -275,79 +297,75 @@ public class HistoryActivity extends AppCompatActivity {
                 });
 */
 
-                //SPINER
-                final Spinner spinner = myDialog.findViewById(R.id.spinner);
+                    //SPINER
+                    final Spinner spinner = myDialog.findViewById(R.id.spinner);
 
-                final ArrayList<ListExercise> exercises = ExercisesTable.getAll();
-                final ArrayList<String> theList = new ArrayList<>();
-                for (ListExercise e : exercises) theList.add(e.toString());
+                    final ArrayList<ListExercise> exercises = ExercisesTable.getAll();
+                    final ArrayList<String> theList = new ArrayList<>();
+                    for (ListExercise e : exercises) theList.add(e.toString());
 
-                adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, theList);
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                spinner.setAdapter(adapter);
-
-                spinner.setOnItemSelectedListener(new MyOnItemSelectedListener());
+                    adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, theList);
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    spinner.setAdapter(adapter);
 
 
-                btnAdd.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                    btnAdd.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
 
-                        String spinnerString = null;
-                        spinnerString = spinner.getSelectedItem().toString();
-                        int nPos = spinner.getSelectedItemPosition();
-
-
-                        Toast.makeText(getApplicationContext(), "getSelectedItem=" + spinnerString,
-                                Toast.LENGTH_LONG).show();
-                        Toast.makeText(getApplicationContext(), "getSelectedItemPosition=" + nPos,
-                                Toast.LENGTH_LONG).show();
-
-                        String newEntry = editText.getText().toString();
-                        String newEntry2 = editText2.getText().toString();
-
-                        Intent intent = new Intent(v.getContext(), HistoryActivity.class);
-                        intent.putExtra("EXERCISE_ID", exercises.get(nPos).getId());
-
-                        Date date = new Date();
-                        SimpleDateFormat formatter = new SimpleDateFormat("ddMyyyy");
-                        String mydate = formatter.format(date);
+                            String spinnerString = null;
+                            spinnerString = spinner.getSelectedItem().toString();
+                            int nPos = spinner.getSelectedItemPosition();
 
 
-                        if (editText.length() != 0 && editText2.length() != 0) {
-                            Series s = new Series(
-                                    -1,
-                                    Double.parseDouble(newEntry),
-                                    Integer.parseInt(newEntry2),
-                                    Integer.parseInt(mydate),
-                                    exercise_id,
-                                    spinnerString,
-                                    new Date(),
-                                    nPos
+                            String newEntry = editText.getText().toString();
+                            String newEntry2 = editText2.getText().toString();
+
+                            Intent intent = new Intent(v.getContext(), HistoryActivity.class);
+                            intent.putExtra("EXERCISE_ID", exercises.get(nPos).getId());
+
+                            Date date = new Date();
+                            SimpleDateFormat formatter = new SimpleDateFormat("ddMyyyy");
+                            String mydate = formatter.format(date);
 
 
-                            );
-                            SeriesTable.insert(s);
-                            editText.setText("");
-                            editText2.setText("");
-                            Intent refresh = new Intent(getApplicationContext(), HistoryActivity.class);
-                            startActivity(refresh);//Start the same Activity
-                            finish(); //finish Activity.
+                            if (editText.length() != 0 && editText2.length() != 0) {
+                                Series s = new Series(
+                                        -1,
+                                        Double.parseDouble(newEntry),
+                                        Integer.parseInt(newEntry2),
+                                        Integer.parseInt(mydate),
+                                        exercise_id,
+                                        spinnerString,
+                                        new Date(),
+                                        nPos
 
 
-                        } else {
-                            Toast.makeText(myDialog.getContext(), "You must put something in the text field!", Toast.LENGTH_LONG).show();
+                                );
+                                SeriesTable.insert(s);
+                                editText.setText("");
+                                editText2.setText("");
+                                Intent refresh = new Intent(getApplicationContext(), HistoryActivity.class);
+                                startActivity(refresh);//Start the same Activity
+                                finish(); //finish Activity.
+                                myDialog.dismiss();
+
+
+                            } else {
+                                Toast.makeText(myDialog.getContext(), "Wszystkie pola muszą być wypełnione", Toast.LENGTH_LONG).show();
+                            }
+
                         }
 
-                    }
-
-                });
+                    });
 
 
-                myDialog.show();
-            }
-        });
+                    myDialog.show();
+
+                }
+            });
+        }
+
+
     }
-
-
 }

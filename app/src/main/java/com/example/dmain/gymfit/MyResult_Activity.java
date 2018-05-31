@@ -3,11 +3,15 @@ package com.example.dmain.gymfit;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.design.widget.FloatingActionButton;
 
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -20,12 +24,17 @@ import android.widget.Toast;
 import com.example.dmain.gymfit.database.models.BodyMeasure;
 import com.example.dmain.gymfit.Adapters.MyResultListAdapter;
 import com.example.dmain.gymfit.database.tables.BodyMeasuresTable;
+import com.example.dmain.gymfit.database.tables.SeriesTable;
 
 import java.util.ArrayList;
 import java.util.Date;
 
+import static android.os.Build.ID;
+
 public class MyResult_Activity extends AppCompatActivity {
 
+
+    BodyMeasure bd;
 
     int[] icon = {R.drawable.arm,
             R.drawable.forearm,
@@ -43,6 +52,8 @@ public class MyResult_Activity extends AppCompatActivity {
     ListView listView;
     MyResultListAdapter adapter;
 
+    SQLiteDatabase mDatabase;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +69,19 @@ public class MyResult_Activity extends AppCompatActivity {
             }
         });
 
+
+
+
+
+
+
+
+
+
         myDialog = new Dialog(this);
         myDialog.setContentView(R.layout.activity_my_result_popup);
+
+
 
         fab = findViewById(R.id.fab);
 
@@ -67,10 +89,40 @@ public class MyResult_Activity extends AppCompatActivity {
 
         final ArrayList<BodyMeasure> bodyMeasures = BodyMeasuresTable.getAll();
         adapter = new MyResultListAdapter(getApplicationContext(), bodyMeasures, icon);
+
+
         if (bodyMeasures.size() == 0) {
             Toast.makeText(this, "There are no contents in this list!", Toast.LENGTH_LONG).show();
         } else {
             listView.setAdapter(adapter);
+
+
+            SwipeDismissListViewTouchListener touchListener =
+                    new SwipeDismissListViewTouchListener(
+                            listView,
+                            new SwipeDismissListViewTouchListener.DismissCallbacks() {
+                                @Override
+                                public boolean canDismiss(int position) {
+                                    return true;
+                                }
+
+                                @Override
+                                public void onDismiss(ListView listView, int[] reverseSortedPositions) {
+                                    for (int position : reverseSortedPositions) {
+
+
+
+                                        bodyMeasures.remove(position);
+                                        BodyMeasuresTable.deleteItem(position);
+
+
+                                        adapter.notifyDataSetChanged();
+
+                                    }
+
+                                }
+                            });
+            listView.setOnTouchListener(touchListener);
 
         }
 
@@ -127,6 +179,10 @@ public class MyResult_Activity extends AppCompatActivity {
                                             new Date()
                                     )
                             );
+                            Intent refresh = new Intent(getApplicationContext(), MyResult_Activity.class);
+                            startActivity(refresh);//Start the same Activity
+                            finish(); //finish Activity.
+                            myDialog.dismiss();
 
 
                         } else {
@@ -140,6 +196,10 @@ public class MyResult_Activity extends AppCompatActivity {
             }
         });
     }
+
+
+
+
 }
 
 
