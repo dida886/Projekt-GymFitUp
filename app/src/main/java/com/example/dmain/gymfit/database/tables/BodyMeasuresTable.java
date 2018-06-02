@@ -86,7 +86,10 @@ public class BodyMeasuresTable {
     }
     public static int deleteItem(int position){
         SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
+
         Cursor cursor = db.rawQuery("DELETE FROM " + TABLE_NAME + " WHERE " + ID_COL + " = " + position, null);
+
+
 
         cursor.close();
         DatabaseManager.getInstance().closeDatabase();

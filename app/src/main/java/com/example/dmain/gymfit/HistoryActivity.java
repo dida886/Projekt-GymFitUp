@@ -7,6 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -51,12 +54,35 @@ public class HistoryActivity extends AppCompatActivity {
 
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.example_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
+
+        switch (item.getItemId()) {
+            case R.id.item1:
+
+                intent = new Intent(this, add_exercise_setting.class);
+                startActivity(intent);
+                return true;
+
+        }
+        return true;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.history_activity);
 
 
         android.support.v7.widget.Toolbar mToolbar = findViewById(R.id.tool_bar);
+        setSupportActionBar(mToolbar);
         mToolbar.setNavigationIcon(R.drawable.ic_arrow_back);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,34 +170,7 @@ public class HistoryActivity extends AppCompatActivity {
                                 }
                             });
             mListView.setOnTouchListener(touchListener);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /*Intent intent = getIntent();
-        final int date = intent.getIntExtra("DATE",0);
-        mListView = findViewById(R.id.datelist);
-        baseAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, theList);
-        mListView.setAdapter(baseAdapter);
-        ArrayList<Series> series = SeriesTable.getAllDate(date);
-        if (series.size() == 0) {
-            Toast.makeText(this, "There are no contents in this list!", Toast.LENGTH_LONG).show();
-        } else {
-            for (Series s : series) theList.add(s.toString());
-        }*/
-
+        }
 
             addbtn.setOnClickListener(new View.OnClickListener() {
 
@@ -284,18 +283,18 @@ public class HistoryActivity extends AppCompatActivity {
                     btnAdd = myDialog.findViewById(R.id.btadd);
 
 
-                /*repsplus.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (weight > 1) {
-                            weight = weight - 0.5;
+                    repsplus.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (weight > 1) {
+                                weight = weight - 0.5;
+                            }
+                            editText.setText((int) weight);
+
+
                         }
-                        editText.setText((int) weight);
+                    });
 
-
-                    }
-                });
-*/
 
                     //SPINER
                     final Spinner spinner = myDialog.findViewById(R.id.spinner);
@@ -366,6 +365,4 @@ public class HistoryActivity extends AppCompatActivity {
             });
         }
 
-
     }
-}
