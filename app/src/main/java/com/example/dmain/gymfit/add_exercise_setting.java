@@ -23,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dmain.gymfit.database.models.ListExercise;
+import com.example.dmain.gymfit.database.tables.BodyMeasuresTable;
 import com.example.dmain.gymfit.database.tables.ExercisesTable;
 
 import java.util.ArrayList;
@@ -37,6 +38,7 @@ public class add_exercise_setting extends AppCompatActivity  {
     EditText editText;
     ListExercise listExercise;
     ArrayList theList;
+    int savecolor = 0;
 
 
     ConstraintLayout myLayout;
@@ -53,12 +55,13 @@ public class add_exercise_setting extends AppCompatActivity  {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_exercise_setting);
 
-        TextView tvName = (TextView) findViewById(R.id.result_date);
+        final TextView tvName = (TextView) findViewById(R.id.result_date);
 
 
         tvImage1=  findViewById(R.id.tv_image1);
@@ -71,16 +74,57 @@ public class add_exercise_setting extends AppCompatActivity  {
         btnColor  = findViewById(R.id.btn_color);
         DefaultColor = ContextCompat.getColor(this,R.color.colorPrimary);
 
-        listView = (ListView) findViewById(R.id.exercise_list_seting);
+       editText.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               tvName.setText("" + editText.getText());
 
+           }
+       });
+
+
+
+
+
+
+
+
+
+        listView = (ListView) findViewById(R.id.exercise_list_seting);
         theList = new ArrayList<>();
         baseAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,theList);
-
         final ArrayList<ListExercise> exercises = ExercisesTable.getAll();
-
         for (ListExercise e : exercises) theList.add(e.toString());
-
         listView.setAdapter(baseAdapter);
+        baseAdapter.notifyDataSetChanged();
+        if (exercises.size() == 0) {
+            Toast.makeText(this, "There are no contents in this list!", Toast.LENGTH_LONG).show();
+
+
+        } else {
+            SwipeDismissListViewTouchListener touchListener =
+                    new SwipeDismissListViewTouchListener(
+                            listView,
+                            new SwipeDismissListViewTouchListener.DismissCallbacks() {
+                                @Override
+                                public boolean canDismiss(int position) {
+                                    return true;
+                                }
+
+                                @Override
+                                public void onDismiss(ListView listView, int[] reverseSortedPositions) {
+                                    for (int position : reverseSortedPositions) {
+
+                                        exercises.remove(position);
+                                        ExercisesTable.deleteItem(position);
+                                        baseAdapter.notifyDataSetChanged();
+
+                                    }
+
+                                }
+                            });
+            listView.setOnTouchListener(touchListener);
+        }
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,11 +134,17 @@ public class add_exercise_setting extends AppCompatActivity  {
                if (editText.length() != 0){
                    ListExercise listExercise= new ListExercise(
                            -1,
-                           editText.toString(),
-                           DefaultColor
+                           editText.getText().toString(),
+                           savecolor
+
+
 
 
                    );
+                   ExercisesTable.insert(listExercise);
+                   baseAdapter.notifyDataSetChanged();
+                   Intent refresh = new Intent(getApplicationContext(), add_exercise_setting.class);
+                   startActivity(refresh);//Start the same Activity
 
 
                }
@@ -124,6 +174,7 @@ public class add_exercise_setting extends AppCompatActivity  {
 
     public void OpenColorPicker(boolean AlphaSupport){
         AmbilWarnaDialog ambilWarnaDialog = new AmbilWarnaDialog(this, DefaultColor, new AmbilWarnaDialog.OnAmbilWarnaListener() {
+
             @Override
             public void onCancel(AmbilWarnaDialog dialog) {
 
@@ -133,6 +184,8 @@ public class add_exercise_setting extends AppCompatActivity  {
             public void onOk(AmbilWarnaDialog dialog, int color) {
                 DefaultColor = color;
                 tvImage1.setColorFilter(color);
+
+               savecolor=color;
             }
         });
         ambilWarnaDialog.show();
