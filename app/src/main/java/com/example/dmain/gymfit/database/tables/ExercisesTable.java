@@ -74,12 +74,13 @@ public class ExercisesTable {
     }
     public static int deleteItem(int position){
         SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
+        db.delete(TABLE_NAME,ID_COL+"="+String.valueOf(position),null);
 
-        Cursor cursor = db.rawQuery("DELETE FROM " + TABLE_NAME + " WHERE " + ID_COL + " = " + position, null);
+        //Cursor cursor = db.rawQuery("DELETE FROM " + TABLE_NAME + " WHERE " + ID_COL + " = " + position, null);
 
 
 
-        cursor.close();
+        //cursor.close();
         DatabaseManager.getInstance().closeDatabase();
         return position;
 

@@ -14,6 +14,8 @@ import com.example.dmain.gymfit.database.models.Series;
 
 import java.util.List;
 
+import yuku.ambilwarna.AmbilWarnaDialog;
+
 import static java.lang.Integer.valueOf;
 
 public class HistoryListAdapter extends BaseAdapter {
@@ -74,8 +76,12 @@ public class HistoryListAdapter extends BaseAdapter {
 
 
 
+
+
+
+
         tvImage1.setImageResource(Integer.valueOf(eProduct.get(colorid).getColor()));
-        tvImage1.setColorFilter(valueOf(eProduct.get(position).getColor()));
+
         tvImage2.setImageResource(Icon[0]);
         tvImage3.setImageResource(Icon[1]);
 

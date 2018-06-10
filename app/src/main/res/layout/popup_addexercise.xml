@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="350dp"
     android:layout_height="550dp"
-    tools:context="com.example.dmain.gymfit.Popup_Exercise">
+    tools:context="com.example.dmain.gymfit.HistoryActivity">
 
     <android.support.design.widget.AppBarLayout
 
@@ -157,8 +157,3 @@
 
 
 </RelativeLayout>
-
-
-
-
-

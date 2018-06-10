@@ -23,8 +23,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dmain.gymfit.database.models.ListExercise;
+import com.example.dmain.gymfit.database.models.Series;
 import com.example.dmain.gymfit.database.tables.BodyMeasuresTable;
 import com.example.dmain.gymfit.database.tables.ExercisesTable;
+import com.example.dmain.gymfit.database.tables.SeriesTable;
 
 import java.util.ArrayList;
 
@@ -69,7 +71,7 @@ public class add_exercise_setting extends AppCompatActivity  {
         ImageView tvImage3=  findViewById(R.id.tv_image3);
 
 
-        btnAdd = findViewById(R.id.btn_add_exercise);
+        btnAdd = findViewById(R.id.button4);
         editText = findViewById(R.id.etAddExercise);
         btnColor  = findViewById(R.id.btn_color);
         DefaultColor = ContextCompat.getColor(this,R.color.colorPrimary);
@@ -95,13 +97,14 @@ public class add_exercise_setting extends AppCompatActivity  {
         baseAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,theList);
         final ArrayList<ListExercise> exercises = ExercisesTable.getAll();
         for (ListExercise e : exercises) theList.add(e.toString());
-        listView.setAdapter(baseAdapter);
+
         baseAdapter.notifyDataSetChanged();
         if (exercises.size() == 0) {
-            Toast.makeText(this, "There are no contents in this list!", Toast.LENGTH_LONG).show();
+           // Toast.makeText(this, "There are no contents in this list!", Toast.LENGTH_LONG).show();
 
 
         } else {
+            listView.setAdapter(baseAdapter);
             SwipeDismissListViewTouchListener touchListener =
                     new SwipeDismissListViewTouchListener(
                             listView,
@@ -115,8 +118,10 @@ public class add_exercise_setting extends AppCompatActivity  {
                                 public void onDismiss(ListView listView, int[] reverseSortedPositions) {
                                     for (int position : reverseSortedPositions) {
 
+                                        ListExercise bm = exercises.get(position);
+                                        ExercisesTable.deleteItem(bm.getId());
                                         exercises.remove(position);
-                                        ExercisesTable.deleteItem(position);
+                                        theList.remove(position);
                                         baseAdapter.notifyDataSetChanged();
 
                                     }
@@ -143,8 +148,8 @@ public class add_exercise_setting extends AppCompatActivity  {
                    );
                    ExercisesTable.insert(listExercise);
                    baseAdapter.notifyDataSetChanged();
-                   Intent refresh = new Intent(getApplicationContext(), add_exercise_setting.class);
-                   startActivity(refresh);//Start the same Activity
+
+
 
 
                }

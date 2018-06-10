@@ -111,9 +111,12 @@ public class MyResult_Activity extends AppCompatActivity {
                                     for (int position : reverseSortedPositions) {
 
 
-
+                                        BodyMeasure bm = bodyMeasures.get(position);
+                                        BodyMeasuresTable.deleteItem(bm.getId());
                                         bodyMeasures.remove(position);
-                                        BodyMeasuresTable.deleteItem(position);
+
+
+//                                        Toast.makeText(MyResult_Activity.this, bm.getId(), Toast.LENGTH_LONG).show();
 
 
                                         adapter.notifyDataSetChanged();

@@ -22,8 +22,10 @@ import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.example.dmain.gymfit.Adapters.HistoryListAdapter;
+import com.example.dmain.gymfit.database.models.BodyMeasure;
 import com.example.dmain.gymfit.database.models.ListExercise;
 import com.example.dmain.gymfit.database.models.Series;
+import com.example.dmain.gymfit.database.tables.BodyMeasuresTable;
 import com.example.dmain.gymfit.database.tables.ExercisesTable;
 import com.example.dmain.gymfit.database.tables.SeriesTable;
 
@@ -48,9 +50,7 @@ public class HistoryActivity extends AppCompatActivity {
 
 
     int day, month, year;
-    int milis;
-    private Toolbar toolbar;
-    private int dam;
+
 
 
     @Override
@@ -116,7 +116,7 @@ public class HistoryActivity extends AppCompatActivity {
         String m;
         m = day + "" + month + "" + year;
 
-        dam = Integer.parseInt(m);
+
 
 
         textCalendar.setText(day + "." + month + "." + year);
@@ -144,7 +144,7 @@ public class HistoryActivity extends AppCompatActivity {
         mainAdapter.notifyDataSetChanged();
 
         if (series.size() == 0) {
-            Toast.makeText(this, "There are no contents in this list!", Toast.LENGTH_LONG).show();
+            //Toast.makeText(this, "There are no contents in this list!", Toast.LENGTH_LONG).show();
 
 
         } else {
@@ -162,6 +162,8 @@ public class HistoryActivity extends AppCompatActivity {
                                 public void onDismiss(ListView listView, int[] reverseSortedPositions) {
                                     for (int position : reverseSortedPositions) {
 
+                                        Series bm = series.get(position);
+                                        SeriesTable.deleteItem(bm.getId());
                                         series.remove(position);
                                         mainAdapter.notifyDataSetChanged();
 
@@ -203,18 +205,20 @@ public class HistoryActivity extends AppCompatActivity {
                     repsplus.setOnClickListener(new View.OnClickListener() {
 
 
-                        public int getReps() {
+                        public int getNumber() {
                             reps = reps + 1;
                             return reps;
                         }
 
                         @Override
                         public void onClick(View v) {
+                            txtreps.setText(""  + getNumber());
 
-                            txtreps.setText("" + getReps());
 
                         }
                     });
+
+
                     repsminus.setOnClickListener(new View.OnClickListener() {
 
 
@@ -283,17 +287,7 @@ public class HistoryActivity extends AppCompatActivity {
                     btnAdd = myDialog.findViewById(R.id.btadd);
 
 
-                    repsplus.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            if (weight > 1) {
-                                weight = weight - 0.5;
-                            }
-                            editText.setText((int) weight);
 
-
-                        }
-                    });
 
 
                     //SPINER
